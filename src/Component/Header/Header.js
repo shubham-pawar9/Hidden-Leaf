@@ -20,13 +20,28 @@ const Styles = {
   callIcon: {
     height: "34px",
     width: "34px",
-    marginRight: 20,
   },
   options: {
-    marginRight: "20px",
+    margin: "0 25px",
     fontSize: "20px",
     fontFamily: "Inter",
     fontWeight: 500,
+    position: "relative",
+  },
+  bookingNumber: {
+    position: "absolute",
+    top: "-17px",
+    right: "-23px",
+    height: "27px",
+    width: "27px",
+    background: "black",
+    borderRadius: "50%",
+    fontSize: "16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#FFFFFF",
+    fontFamily: "Inter",
   },
 };
 const Header = () => {
@@ -54,7 +69,7 @@ const Header = () => {
         </Box>
         <Box flexGrow={1} />
         <Box display="flex" alignItems="center">
-          <IconButton edge="end" color="inherit">
+          <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
             <img src="./images/call.png" alt="" style={Styles.callIcon} />
           </IconButton>
           <Typography variant="body1" color="textPrimary" sx={Styles.options}>
@@ -63,13 +78,18 @@ const Header = () => {
           <Typography variant="body1" color="textPrimary" sx={Styles.options}>
             Events
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={3} color="error">
-              <BookmarksIcon />
-            </Badge>
-          </IconButton>
+
           <Typography variant="body1" color="textPrimary" sx={Styles.options}>
             Bookings
+            <Box>
+              <Typography
+                variant="v6"
+                color="textPrimary"
+                sx={Styles.bookingNumber}
+              >
+                3
+              </Typography>
+            </Box>
           </Typography>
           <Typography variant="body1" color="textPrimary" sx={Styles.options}>
             About Us
