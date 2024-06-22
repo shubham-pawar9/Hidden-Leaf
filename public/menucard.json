@@ -1,0 +1,177 @@
+[
+    {
+        "id":1,
+        "main_course":"Non-Veg Special",
+        "special":"Chicken / Mutton",
+        "foods":[
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            }
+
+        ]
+    },
+    {
+        "id":1,
+        "main_course":"Veg Special",
+        "special":"Curry / Paneer",
+        "foods":[
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            }
+
+        ]
+    },
+    {
+        "id":1,
+        "main_course":"Drinks Special",
+        "special":"Mocktails",
+        "foods":[
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            },
+            {
+                "id":1,
+                "name":"FOOD NAME",
+                "description":"Lorem Ipsum placeholder text for use in your."
+            }
+
+        ]
+    }
+
+]
