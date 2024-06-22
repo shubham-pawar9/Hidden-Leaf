@@ -27,6 +27,7 @@ const Styles = {
     fontFamily: "Inter",
     fontWeight: 500,
     position: "relative",
+    cursor: "pointer",
   },
   bookingNumber: {
     position: "absolute",
@@ -44,7 +45,10 @@ const Styles = {
     fontFamily: "Inter",
   },
 };
-const Header = () => {
+const Header = ({ setMenucards }) => {
+  const handleMenuCards = () => {
+    setMenucards(true);
+  };
   return (
     <AppBar
       position="static"
@@ -72,7 +76,12 @@ const Header = () => {
           <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
             <img src="./images/call.png" alt="" style={Styles.callIcon} />
           </IconButton>
-          <Typography variant="body1" color="textPrimary" sx={Styles.options}>
+          <Typography
+            variant="body1"
+            color="textPrimary"
+            sx={Styles.options}
+            onClick={handleMenuCards}
+          >
             Menus
           </Typography>
           <Typography variant="body1" color="textPrimary" sx={Styles.options}>

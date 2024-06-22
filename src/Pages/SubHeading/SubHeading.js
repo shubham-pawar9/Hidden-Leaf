@@ -1,4 +1,7 @@
+import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import useInView from "../../Component/useInView";
 
 const Styles = {
   banner1Box: {
@@ -56,36 +59,55 @@ const Styles = {
     left: "10px",
   },
 };
+
 const SubHeading = () => {
+  const [setRef1, inView1] = useInView({ threshold: 0.1 });
+  const [setRef2, inView2] = useInView({ threshold: 0.1 });
+
   return (
     <Box sx={Styles.bannerBox}>
-      <Grid sx={Styles.banner1Box}>
-        <Box sx={{ ...Styles.bannerTextBox, ...Styles.bannerTextBox1 }}>
-          <Typography sx={Styles.bannerText}>EXCLUSIVELY FOR YOU</Typography>
-          <Typography sx={Styles.bannerSubText}>
-            Enjoy delicious cuisine while watching live IPL matches at our
-            hotel. Experience the thrill of the game with every bite!
-          </Typography>
-        </Box>
-        <Box>
-          <img src="./images/banner1.png" alt="" style={Styles.bannerImage} />
-        </Box>
-      </Grid>
-      <Grid sx={Styles.banner2Box}>
-        <Box sx={{ ...Styles.bannerTextBox, ...Styles.bannerTextBox2 }}>
-          <Typography sx={{ ...Styles.bannerText, ...Styles.bannerText2 }}>
-            PLAN YOUR SPECIAL EVENTS
-          </Typography>
-          <Typography sx={Styles.bannerSubText}>
-            Plan your special events with us on our spacious lawn. Celebrate
-            under the open sky with elegance and style!
-          </Typography>
-        </Box>
-        <Box>
-          <img src="./images/banner2.png" alt="" style={Styles.bannerImage} />
-        </Box>
-      </Grid>
+      <motion.div
+        ref={setRef1}
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: inView1 ? 1 : 0, y: inView1 ? 0 : 100 }}
+        transition={{ duration: 1 }}
+      >
+        <Grid sx={Styles.banner1Box}>
+          <Box sx={{ ...Styles.bannerTextBox, ...Styles.bannerTextBox1 }}>
+            <Typography sx={Styles.bannerText}>EXCLUSIVELY FOR YOU</Typography>
+            <Typography sx={Styles.bannerSubText}>
+              Enjoy delicious cuisine while watching live IPL matches at our
+              hotel. Experience the thrill of the game with every bite!
+            </Typography>
+          </Box>
+          <Box>
+            <img src="./images/banner1.png" alt="" style={Styles.bannerImage} />
+          </Box>
+        </Grid>
+      </motion.div>
+      <motion.div
+        ref={setRef2}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView2 ? 1 : 0, y: inView2 ? 0 : 50 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Grid sx={Styles.banner2Box}>
+          <Box sx={{ ...Styles.bannerTextBox, ...Styles.bannerTextBox2 }}>
+            <Typography sx={{ ...Styles.bannerText, ...Styles.bannerText2 }}>
+              PLAN YOUR SPECIAL EVENTS
+            </Typography>
+            <Typography sx={Styles.bannerSubText}>
+              Plan your special events with us on our spacious lawn. Celebrate
+              under the open sky with elegance and style!
+            </Typography>
+          </Box>
+          <Box>
+            <img src="./images/banner2.png" alt="" style={Styles.bannerImage} />
+          </Box>
+        </Grid>
+      </motion.div>
     </Box>
   );
 };
+
 export default SubHeading;
