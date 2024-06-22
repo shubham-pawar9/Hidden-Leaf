@@ -1,14 +1,5 @@
-import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Badge,
-  Box,
-} from "@mui/material";
-import PhoneIcon from "@mui/icons-material/Phone";
-import BookmarksIcon from "@mui/icons-material/Bookmarks";
+import React, { useState } from "react";
+import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
 
 const Styles = {
   headerName: {
@@ -28,6 +19,10 @@ const Styles = {
     fontWeight: 500,
     position: "relative",
     cursor: "pointer",
+    padding: "0 10px",
+    "&.active": {
+      borderBottom: "2px solid black",
+    },
   },
   bookingNumber: {
     position: "absolute",
@@ -45,10 +40,12 @@ const Styles = {
     fontFamily: "Inter",
   },
 };
-const Header = ({ setMenucards }) => {
-  const handleMenuCards = () => {
-    setMenucards(true);
+
+const Header = ({ activeOption, setActiveOption }) => {
+  const handleOptionClick = (option) => {
+    setActiveOption(option);
   };
+
   return (
     <AppBar
       position="static"
@@ -76,33 +73,31 @@ const Header = ({ setMenucards }) => {
           <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
             <img src="./images/call.png" alt="" style={Styles.callIcon} />
           </IconButton>
-          <Typography
-            variant="body1"
-            color="textPrimary"
-            sx={Styles.options}
-            onClick={handleMenuCards}
-          >
-            Menus
-          </Typography>
-          <Typography variant="body1" color="textPrimary" sx={Styles.options}>
-            Events
-          </Typography>
-
-          <Typography variant="body1" color="textPrimary" sx={Styles.options}>
-            Bookings
-            <Box>
-              <Typography
-                variant="v6"
-                color="textPrimary"
-                sx={Styles.bookingNumber}
-              >
-                3
-              </Typography>
-            </Box>
-          </Typography>
-          <Typography variant="body1" color="textPrimary" sx={Styles.options}>
-            About Us
-          </Typography>
+          {["Menus", "Events", "Bookings", "About Us"].map((option) => (
+            <Typography
+              key={option}
+              variant="body1"
+              color="textPrimary"
+              sx={{
+                ...Styles.options,
+                ...(activeOption === option && Styles.options["&.active"]),
+              }}
+              onClick={() => handleOptionClick(option)}
+            >
+              {option}
+              {option === "Bookings" && (
+                <Box>
+                  <Typography
+                    variant="v6"
+                    color="textPrimary"
+                    sx={Styles.bookingNumber}
+                  >
+                    3
+                  </Typography>
+                </Box>
+              )}
+            </Typography>
+          ))}
         </Box>
       </Toolbar>
     </AppBar>

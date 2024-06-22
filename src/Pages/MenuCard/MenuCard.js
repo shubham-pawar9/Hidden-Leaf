@@ -18,7 +18,8 @@ const Styles = {
     color: "#fff", // Ensure the text is visible on the background
     fontSize: "24px",
     padding: "20px",
-    paddingLeft: "70px",
+    position: "relative",
+    left: "20px",
   },
   menuHeading: {
     marginBottom: "40px",
