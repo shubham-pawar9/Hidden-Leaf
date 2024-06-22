@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "name":"Butter Chicken",
+        "description":"Savor the rich and creamy delight of our Butter Chicken, a classic dish featuring tender chicken simmered in a velvety tomato-based sauce. Perfectly spiced to tantalize your taste buds!",
+        "image":"butter-chicken.png"
+    },
+    {
+        "id":2,
+        "name":"Paneer Chilli",
+        "description":"Delight in the zesty and savory Paneer Chilli, featuring succulent paneer cubes tossed in a spicy, tangy sauce. A perfect fusion of flavors to excite your palate!",
+        "image":"paneer-chilli.png"
+    },
+    {
+        "id":3,
+        "name":"Chicken Lollypop",
+        "description":"Experience the bold and spicy flavors of Chicken 65, featuring crispy, marinated chicken pieces bursting with aromatic spices. A tantalizing treat for every spice lover!",
+        "image":"lollypop.png"
+    },
+    {
+        "id":4,
+        "name":"Nalli Soup",
+        "description":"Indulge in the hearty and flavorful Mutton Nalli Soup, a robust blend of tender mutton and aromatic spices. This nourishing soup promises warmth and comfort in every spoonful!",
+        "image":"mutton-soup.png"
+    },
+    {
+        "id":5,
+        "name":"Chinese Noodles",
+        "description":"Enjoy the savory and aromatic Chinese Noodles, a delightful mix of stir-fried noodles, fresh vegetables, and authentic spices. A satisfying dish that brings the essence of China to your plate!",
+        "image":"noodles.png"
+    },
+    {
+        "id":6,
+        "name":"Chicken Biryani",
+        "description":"Relish the aromatic and flavorful Chicken Biryani, a perfect blend of tender chicken, fragrant basmati rice, and exotic spices. A timeless classic that promises a feast in every bite!",
+        "image":"biryani.png"
+    },
+    {
+        "id":1,
+        "name":"Butter Chicken",
+        "description":"Savor the rich and creamy delight of our Butter Chicken, a classic dish featuring tender chicken simmered in a velvety tomato-based sauce. Perfectly spiced to tantalize your taste buds!",
+        "image":"butter-chicken.png"
+    },
+    {
+        "id":2,
+        "name":"Paneer Chilli",
+        "description":"Delight in the zesty and savory Paneer Chilli, featuring succulent paneer cubes tossed in a spicy, tangy sauce. A perfect fusion of flavors to excite your palate!",
+        "image":"paneer-chilli.png"
+    },
+    {
+        "id":3,
+        "name":"Chicken Lollypop",
+        "description":"Experience the bold and spicy flavors of Chicken 65, featuring crispy, marinated chicken pieces bursting with aromatic spices. A tantalizing treat for every spice lover!",
+        "image":"lollypop.png"
+    },
+    {
+        "id":4,
+        "name":"Nalli Soup",
+        "description":"Indulge in the hearty and flavorful Mutton Nalli Soup, a robust blend of tender mutton and aromatic spices. This nourishing soup promises warmth and comfort in every spoonful!",
+        "image":"mutton-soup.png"
+    },
+    {
+        "id":5,
+        "name":"Chinese Noodles",
+        "description":"Enjoy the savory and aromatic Chinese Noodles, a delightful mix of stir-fried noodles, fresh vegetables, and authentic spices. A satisfying dish that brings the essence of China to your plate!",
+        "image":"noodles.png"
+    },
+    {
+        "id":6,
+        "name":"Chicken Biryani",
+        "description":"Relish the aromatic and flavorful Chicken Biryani, a perfect blend of tender chicken, fragrant basmati rice, and exotic spices. A timeless classic that promises a feast in every bite!",
+        "image":"biryani.png"
+    }
+]
