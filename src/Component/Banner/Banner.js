@@ -4,6 +4,9 @@ const Styles = {
   menusBox: {
     padding: "0 60px",
     marginTop: "60px",
+    "@media (max-width: 700px)": {
+      padding: "0 20px",
+    },
   },
   menuHeading: {
     marginBottom: "40px",

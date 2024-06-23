@@ -13,12 +13,19 @@ const Styles = {
     fontWeight: 700,
     marginBottom: "10px",
     fontFamily: "Inter",
+    "@media (max-width: 700px)": {
+      fontSize: "58px",
+    },
   },
   subHeading: {
     fontSize: "18px",
     color: "#828282",
     width: "600px",
     fontFamily: "Inter",
+    "@media (max-width: 700px)": {
+      fontSize: "12px",
+      width: "350px",
+    },
   },
   bookTableBtn: {
     backgroundColor: "black",

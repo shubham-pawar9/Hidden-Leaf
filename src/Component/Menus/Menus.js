@@ -13,6 +13,10 @@ const Styles = {
     justifyContent: "flex-start",
     alignItems: "flex-start",
     gap: "15px",
+    "@media (max-width: 700px)": {
+      flexDirection: "column",
+      maxWidth: "350px",
+    },
   },
   itemName: {
     textAlign: "left",
@@ -28,6 +32,9 @@ const Styles = {
   menusBox: {
     padding: "0 60px",
     marginTop: "60px",
+    "@media (max-width: 700px)": {
+      padding: "0 20px",
+    },
   },
   menuHeading: {
     marginBottom: "40px",
@@ -41,6 +48,12 @@ const Styles = {
     fontSize: "16px",
     color: "#828282",
     cursor: "pointer",
+  },
+  menuMainBox: {
+    "@media (max-width: 700px)": {
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
 };
 
@@ -72,35 +85,29 @@ const Menus = () => {
       <Typography variant="h4" sx={Styles.menuHeading}>
         Our Highest-Rated Exquisite Menus
       </Typography>
-      <Grid container spacing={4}>
-        {menu.slice(0, visibleItems).map((item) => (
-          <Grid item xs={6} key={item.id} sx={Styles.itemBox}>
-            <motion.div
-              ref={setRef1}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: inView1 ? 1 : 0, y: inView1 ? 0 : 50 }}
-              transition={{ duration: 0.5 }}
-            >
+      <motion.div
+        ref={setRef1}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView1 ? 1 : 0, y: inView1 ? 0 : 50 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Grid container spacing={4} sx={Styles.menuMainBox}>
+          {menu.slice(0, visibleItems).map((item) => (
+            <Grid item xs={6} key={item.id} sx={Styles.itemBox}>
               <img
                 src={`./images/menus/${item.image}`}
                 alt={item.name}
                 style={Styles.imageItem}
               />
-            </motion.div>
-            <Box>
-              <motion.div
-                ref={setRef2}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: inView2 ? 1 : 0, y: inView2 ? 0 : 50 }}
-                transition={{ duration: 0.5 }}
-              >
+
+              <Box>
                 <Typography sx={Styles.itemName}>{item.name}</Typography>
                 <Typography sx={Styles.itemDesc}>{item.description}</Typography>
-              </motion.div>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </motion.div>
       {visibleItems < menu.length && (
         <Typography
           variant="h6"

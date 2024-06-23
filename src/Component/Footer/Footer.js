@@ -4,6 +4,9 @@ const Styles = {
   menusBox: {
     padding: "0 60px",
     marginTop: "60px",
+    "@media (max-width: 700px)": {
+      padding: "0 20px",
+    },
   },
   menuHeading: {
     marginBottom: "40px",
@@ -19,6 +22,10 @@ const Styles = {
     display: "flex",
     justifyContent: "space-around",
     marginBottom: "40px",
+    "@media (max-width: 700px)": {
+      flexDirection: "column",
+      gap: "20px",
+    },
   },
   contactStyle: {
     display: "flex",
@@ -28,6 +35,9 @@ const Styles = {
     display: "flex",
     flexDirection: "column",
     gap: "25px",
+    "@media (max-width: 700px)": {
+      gap: "15px",
+    },
   },
   socialBox: {
     display: "flex",
@@ -41,6 +51,9 @@ const Styles = {
     fontWeight: 500,
     color: "#828282",
     lineHeight: "26px",
+    "@media (max-width: 700px)": {
+      width: "275px",
+    },
   },
   addressbox: {
     display: "flex",
@@ -66,11 +79,17 @@ const Styles = {
     fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "20px",
+    "@media (max-width: 700px)": {
+      fontSize: "16px",
+    },
   },
   mob: {
     fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "20px",
+    "@media (max-width: 700px)": {
+      fontSize: "16px",
+    },
   },
   addressHead: {
     color: "#000000",

@@ -1,5 +1,17 @@
 import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  useMediaQuery,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Styles = {
   headerName: {
@@ -38,13 +50,70 @@ const Styles = {
     justifyContent: "center",
     color: "#FFFFFF",
     fontFamily: "Inter",
+    "@media (max-width: 700px)": {
+      top: "8px",
+    },
+  },
+  drawerPaper: {
+    width: 250,
   },
 };
 
 const Header = ({ activeOption, setActiveOption }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
+
   const handleOptionClick = (option) => {
     setActiveOption(option);
+    if (isMobile) {
+      setDrawerOpen(false);
+    }
   };
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
+
+  const menuOptions = ["Menus", "Events", "Bookings", "About Us"];
+
+  const drawerContent = (
+    <Box
+      sx={Styles.drawerPaper}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {menuOptions.map((option) => (
+          <ListItem
+            button
+            key={option}
+            sx={{ width: "max-content" }}
+            onClick={() => handleOptionClick(option)}
+          >
+            <ListItemText primary={option} />
+            {option === "Bookings" && (
+              <Box>
+                <Typography
+                  variant="v6"
+                  color="textPrimary"
+                  sx={Styles.bookingNumber}
+                >
+                  3
+                </Typography>
+              </Box>
+            )}
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   return (
     <AppBar
@@ -69,36 +138,52 @@ const Header = ({ activeOption, setActiveOption }) => {
           </Typography>
         </Box>
         <Box flexGrow={1} />
-        <Box display="flex" alignItems="center">
-          <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
-            <img src="./images/call.png" alt="" style={Styles.callIcon} />
-          </IconButton>
-          {["Menus", "Events", "Bookings", "About Us"].map((option) => (
-            <Typography
-              key={option}
-              variant="body1"
-              color="textPrimary"
-              sx={{
-                ...Styles.options,
-                ...(activeOption === option && Styles.options["&.active"]),
-              }}
-              onClick={() => handleOptionClick(option)}
+        {isMobile ? (
+          <>
+            <IconButton edge="end" color="inherit" onClick={toggleDrawer(true)}>
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={toggleDrawer(false)}
+              sx={{ display: { xs: "block", md: "none" } }}
             >
-              {option}
-              {option === "Bookings" && (
-                <Box>
-                  <Typography
-                    variant="v6"
-                    color="textPrimary"
-                    sx={Styles.bookingNumber}
-                  >
-                    3
-                  </Typography>
-                </Box>
-              )}
-            </Typography>
-          ))}
-        </Box>
+              {drawerContent}
+            </Drawer>
+          </>
+        ) : (
+          <Box display="flex" alignItems="center">
+            <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
+              <img src="./images/call.png" alt="" style={Styles.callIcon} />
+            </IconButton>
+            {menuOptions.map((option) => (
+              <Typography
+                key={option}
+                variant="body1"
+                color="textPrimary"
+                sx={{
+                  ...Styles.options,
+                  ...(activeOption === option && Styles.options["&.active"]),
+                }}
+                onClick={() => handleOptionClick(option)}
+              >
+                {option}
+                {option === "Bookings" && (
+                  <Box>
+                    <Typography
+                      variant="v6"
+                      color="textPrimary"
+                      sx={Styles.bookingNumber}
+                    >
+                      3
+                    </Typography>
+                  </Box>
+                )}
+              </Typography>
+            ))}
+          </Box>
+        )}
       </Toolbar>
     </AppBar>
   );

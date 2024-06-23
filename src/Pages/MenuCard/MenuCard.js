@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 
 const Styles = {
@@ -7,6 +7,7 @@ const Styles = {
     backgroundSize: "cover", // or 'contain' or other values based on your needs
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
+    borderRadius: "20px",
   },
   menuCardBox: {
     width: "100%", // Set the width of the box
@@ -20,6 +21,9 @@ const Styles = {
     padding: "20px",
     position: "relative",
     left: "20px",
+    "@media (max-width: 700px)": {
+      left: "0px",
+    },
   },
   menuHeading: {
     marginBottom: "40px",
@@ -31,6 +35,9 @@ const Styles = {
   menuCardMainBox: {
     padding: "0 60px",
     marginTop: "60px",
+    "@media (max-width: 700px)": {
+      padding: "0 20px",
+    },
   },
   menuItemBox: {
     marginBottom: "20px",
@@ -72,6 +79,9 @@ const Styles = {
     fontWeight: 500,
     fontFamily: "Inter",
     fontSize: "16px",
+    "@media (max-width: 700px)": {
+      textAlign: "left",
+    },
   },
 };
 
@@ -97,9 +107,10 @@ const MenuCard = () => {
       <Typography variant="h4" sx={Styles.menuHeading}>
         Hidden-Leaf Special Menus
       </Typography>
-      <Box sx={Styles.menuBox}>
-        {menus.length > 0 ? (
-          menus.map((menu, index) => (
+
+      {menus.length > 0 ? (
+        <Box sx={Styles.menuBox}>
+          {menus.map((menu, index) => (
             <Box key={index} sx={Styles.menuCardBox}>
               <Box sx={Styles.menuItemBox}>
                 <Typography variant="h5" sx={Styles.heading}>
@@ -122,11 +133,13 @@ const MenuCard = () => {
                 ))}
               </Box>
             </Box>
-          ))
-        ) : (
-          <Typography>Loading menus...</Typography>
-        )}
-      </Box>
+          ))}
+        </Box>
+      ) : (
+        <Box sx={Styles.loaderBox}>
+          <CircularProgress />
+        </Box>
+      )}
     </Box>
   );
 };

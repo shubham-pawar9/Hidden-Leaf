@@ -9,6 +9,13 @@ const Styles = {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 60px",
+    "@media (max-width: 700px)": {
+      flexDirection: "column",
+      gap: "30px",
+      "& img": {
+        height: "200px !important",
+      },
+    },
   },
   bannerTextBox: {
     display: "flex",
@@ -19,6 +26,9 @@ const Styles = {
     textAlign: "left",
     width: "350px",
     color: "#828282",
+    "@media (max-width: 700px)": {
+      width: "290px",
+    },
   },
   bannerImage: {
     height: "350px",
@@ -30,6 +40,14 @@ const Styles = {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 40px",
+    "@media (max-width: 700px)": {
+      flexDirection: "column",
+      padding: "0 20px",
+      gap: "30px",
+      "& img": {
+        height: "200px !important",
+      },
+    },
   },
   bannerBox: {
     display: "flex",
@@ -42,6 +60,10 @@ const Styles = {
     fontWeight: 600,
     width: "350px",
     textAlign: "left",
+    "@media (max-width: 700px)": {
+      width: "300px",
+      fontSize: "30px",
+    },
   },
   bannerTextBox2: {
     position: "relative",
@@ -53,10 +75,17 @@ const Styles = {
     fontWeight: 600,
     width: "450px",
     textAlign: "left",
+    "@media (max-width: 700px)": {
+      width: "300px",
+      fontSize: "30px",
+    },
   },
   bannerTextBox1: {
     position: "relative",
     left: "10px",
+    "@media (max-width: 700px)": {
+      left: "0px",
+    },
   },
 };
 

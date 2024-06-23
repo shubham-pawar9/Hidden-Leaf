@@ -7,6 +7,8 @@ import Menus from "../../Component/Menus/Menus";
 import Heading from "../Heading/Heading";
 import SubHeading from "../SubHeading/SubHeading";
 import MenuCard from "../MenuCard/MenuCard";
+import Events from "../Events/Events";
+import Bookings from "../Bookings/Bookings";
 
 const Main = () => {
   const [activeOption, setActiveOption] = useState("About Us");
@@ -24,6 +26,8 @@ const Main = () => {
           <Booking />
         </>
       )}
+      {activeOption == "Events" && <Events />}
+      {activeOption == "Bookings" && <Bookings />}
       <Footer />
     </>
   );

@@ -15,6 +15,9 @@ const Styles = {
   menusBox: {
     padding: "0 60px",
     marginTop: "60px",
+    "@media (max-width: 700px)": {
+      padding: "0 20px",
+    },
   },
   menuHeading: {
     marginBottom: "40px",
@@ -34,11 +37,17 @@ const Styles = {
       backgroundColor: "black",
     },
     alignSelf: "flex-start",
+    "@media (max-width: 700px)": {
+      alignSelf: "center",
+    },
   },
   inputStyle: {
     width: "344px",
     "& .MuiSelect-select": {
       textAlign: "left",
+    },
+    "@media (max-width: 700px)": {
+      width: "300px",
     },
   },
   inputBox: {
@@ -52,6 +61,9 @@ const Styles = {
     justifyContent: "flex-start",
     gap: "30px",
     flexWrap: "wrap",
+    "@media (max-width: 700px)": {
+      justifyContent: "center",
+    },
   },
   bookingForm: {
     display: "flex",
@@ -63,6 +75,9 @@ const Styles = {
     fontSize: "20px",
     fontWeight: 500,
     fontFamily: "Inter",
+    "@media (max-width: 700px)": {
+      fontSize: "16px",
+    },
   },
   booktableBox: {
     boxShadow: "0px 0px 9px 0px #00000040",
@@ -70,6 +85,12 @@ const Styles = {
     padding: "40px 0 20px 0",
     display: "flex",
     justifyContent: "center",
+  },
+  inputCustom: {
+    alignSelf: "flex-start",
+    "@media (max-width: 700px)": {
+      alignSelf: "unset",
+    },
   },
 };
 
@@ -173,7 +194,7 @@ const Booking = () => {
               </Select>
             </Box>
           </Grid>
-          <Grid sx={{ ...Styles.inputGroup, alignSelf: "flex-start" }}>
+          <Grid sx={{ ...Styles.inputGroup, ...Styles.inputCustom }}>
             <Box sx={Styles.inputBox}>
               <Typography sx={Styles.inputName}>
                 Add your custome Requirements
