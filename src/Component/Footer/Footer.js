@@ -118,22 +118,22 @@ const Footer = () => {
           <Grid sx={Styles.socialBox}>
             <img
               style={Styles.socialIcon}
-              src="./images/social/facebook.png"
+              src={process.env.PUBLIC_URL + "/images/social/facebook.png"}
               alt=""
             />
             <img
               style={Styles.socialIcon}
-              src="./images/social/linkedin.png"
+              src={process.env.PUBLIC_URL + "/images/social/linkedin.png"}
               alt=""
             />
             <img
               style={Styles.socialIcon}
-              src="./images/social/youtube.png"
+              src={process.env.PUBLIC_URL + "/images/social/youtube.png"}
               alt=""
             />
             <img
               style={Styles.socialIcon}
-              src="./images/social/instagram.png"
+              src={process.env.PUBLIC_URL + "/images/social/instagram.png"}
               alt=""
             />
           </Grid>

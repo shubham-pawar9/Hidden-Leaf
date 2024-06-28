@@ -64,7 +64,7 @@ const Menus = () => {
   const [setRef2, inView2] = useInView({ threshold: 0.1 });
   const fetchMenus = async () => {
     try {
-      const menuData = await fetch("menus.json");
+      const menuData = await fetch(process.env.PUBLIC_URL + "/menus.json");
       const response = await menuData.json();
       setMenu(response);
     } catch (error) {
@@ -95,7 +95,7 @@ const Menus = () => {
           {menu.slice(0, visibleItems).map((item) => (
             <Grid item xs={6} key={item.id} sx={Styles.itemBox}>
               <img
-                src={`./images/menus/${item.image}`}
+                src={process.env.PUBLIC_URL + `/images/menus/${item.image}`}
                 alt={item.name}
                 style={Styles.imageItem}
               />

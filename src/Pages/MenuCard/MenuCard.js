@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const Styles = {
   menuBox: {
-    backgroundImage: 'url("./images/menu-background.png")',
+    backgroundImage: `url(${process.env.PUBLIC_URL}/images/menu-background.png)`,
     backgroundSize: "cover", // or 'contain' or other values based on your needs
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -90,7 +90,7 @@ const MenuCard = () => {
 
   const fetchMenus = async () => {
     try {
-      const menuData = await fetch("menucard.json");
+      const menuData = await fetch(process.env.PUBLIC_URL + "/menucard.json");
       const response = await menuData.json();
       setMenus(response);
     } catch (error) {

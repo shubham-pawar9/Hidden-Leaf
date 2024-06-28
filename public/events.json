@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "date":"26-1-2024",
+        "eventName":"Baby Shower Event",
+        "details":"Booked 4 tables and Lawn",
+        "size":"35 to 40 Peoples",
+        "time":"3:00 PM to 6:00 PM"
+    },
+    {
+        "id":1,
+        "date":"28-1-2024",
+        "eventName":"Engagement Event",
+        "details":"Booked All tables and Lawn",
+        "size":"100 Peoples",
+        "time":"4:00 PM to 9:00 PM"
+    },
+    {
+        "id":1,
+        "date":"30-1-2024",
+        "eventName":"Birthday Event",
+        "details":"Booked All tables and Lawn",
+        "size":"50 to 60 Peoples",
+        "time":"6:00 PM to 11:00 PM"
+    }
+]

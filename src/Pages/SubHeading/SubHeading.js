@@ -110,7 +110,11 @@ const SubHeading = () => {
             </Typography>
           </Box>
           <Box>
-            <img src="./images/banner1.png" alt="" style={Styles.bannerImage} />
+            <img
+              src={process.env.PUBLIC_URL + "/images/banner1.png"}
+              alt=""
+              style={Styles.bannerImage}
+            />
           </Box>
         </Grid>
       </motion.div>
@@ -131,7 +135,11 @@ const SubHeading = () => {
             </Typography>
           </Box>
           <Box>
-            <img src="./images/banner2.png" alt="" style={Styles.bannerImage} />
+            <img
+              src={process.env.PUBLIC_URL + "/images/banner2.png"}
+              alt=""
+              style={Styles.bannerImage}
+            />
           </Box>
         </Grid>
       </motion.div>

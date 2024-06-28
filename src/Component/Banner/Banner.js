@@ -27,7 +27,11 @@ const Banner = () => {
         Dine & Delivery
       </Typography>
       <Box>
-        <img src="./images/main-banner.png" alt="" style={Styles.bannerImage} />
+        <img
+          src={process.env.PUBLIC_URL + "/images/main-banner.png"}
+          alt=""
+          style={Styles.bannerImage}
+        />
       </Box>
     </Box>
   );

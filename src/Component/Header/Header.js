@@ -19,6 +19,9 @@ const Styles = {
     fontSize: "26px",
     fontFamily: "Inter",
     fontWeight: 500,
+    "@media (max-width: 700px)": {
+      fontSize: "18px",
+    },
   },
   callIcon: {
     height: "34px",
@@ -57,6 +60,11 @@ const Styles = {
   drawerPaper: {
     width: 250,
   },
+  logoIcon: {
+    width: "55px",
+    height: "55px",
+    borderRadius: "50%",
+  },
 };
 
 const Header = ({ activeOption, setActiveOption }) => {
@@ -80,7 +88,7 @@ const Header = ({ activeOption, setActiveOption }) => {
     setDrawerOpen(open);
   };
 
-  const menuOptions = ["Menus", "Events", "Bookings", "About Us"];
+  const menuOptions = ["Menus", "Events", "Bookings", "Home"];
 
   const drawerContent = (
     <Box
@@ -125,9 +133,9 @@ const Header = ({ activeOption, setActiveOption }) => {
       <Toolbar>
         <Box display="flex" alignItems="center">
           <img
-            src="./images/logo.png"
+            src={process.env.PUBLIC_URL + "/images/logo.png"}
             alt="Hidden Leaf"
-            style={{ width: 70, height: 70, borderRadius: "50%" }}
+            style={Styles.logoIcon}
           />
           <Typography
             variant="h6"
@@ -155,7 +163,11 @@ const Header = ({ activeOption, setActiveOption }) => {
         ) : (
           <Box display="flex" alignItems="center">
             <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
-              <img src="./images/call.png" alt="" style={Styles.callIcon} />
+              <img
+                src={process.env.PUBLIC_URL + "/images/call.png"}
+                alt=""
+                style={Styles.callIcon}
+              />
             </IconButton>
             {menuOptions.map((option) => (
               <Typography

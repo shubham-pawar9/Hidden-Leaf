@@ -11,13 +11,13 @@ import Events from "../Events/Events";
 import Bookings from "../Bookings/Bookings";
 
 const Main = () => {
-  const [activeOption, setActiveOption] = useState("About Us");
+  const [activeOption, setActiveOption] = useState("Home");
 
   return (
     <>
       <Header activeOption={activeOption} setActiveOption={setActiveOption} />
       {activeOption == "Menus" && <MenuCard />}
-      {activeOption == "About Us" && (
+      {activeOption == "Home" && (
         <>
           <Heading />
           <SubHeading />
