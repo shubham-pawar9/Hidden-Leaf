@@ -7,14 +7,13 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers";
-import { hover } from "@testing-library/user-event/dist/hover";
-import { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Styles = {
   menusBox: {
-    padding: "0 60px",
-    marginTop: "60px",
+    padding: "0 20px",
+    margin: "20px 0",
     "@media (max-width: 700px)": {
       padding: "0 20px",
     },
@@ -58,7 +57,7 @@ const Styles = {
   },
   inputGroup: {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     gap: "30px",
     flexWrap: "wrap",
     "@media (max-width: 700px)": {
@@ -82,136 +81,173 @@ const Styles = {
   booktableBox: {
     boxShadow: "0px 0px 9px 0px #00000040",
     borderRadius: "10px",
-    padding: "40px 0 20px 0",
+    padding: "20px",
     display: "flex",
     justifyContent: "center",
   },
   inputCustom: {
     alignSelf: "flex-start",
+    width: "100%",
     "@media (max-width: 700px)": {
       alignSelf: "unset",
     },
   },
 };
 
-const Booking = () => {
-  const [selectedNumber, setSelectedNumber] = useState(1);
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectGuest, setSelectGuest] = useState(10);
-  const handleTableChange = (event) => {
-    setSelectedNumber(event.target.value);
-  };
+const validationSchema = Yup.object({
+  name: Yup.string().required("Required"),
+  mobile: Yup.string().required("Required"),
+  eventName: Yup.string().required("Required"),
+  tablesCount: Yup.number().required("Required").min(1).max(8),
+  guestCount: Yup.number().required("Required").min(1).max(50),
+  customization: Yup.string(),
+});
 
-  const handleDataChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
-  const handleGuestChange = (event) => {
-    setSelectGuest(event.target.value);
-  };
+const Booking = ({ selectedDate, onSubmit }) => {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      mobile: "",
+      eventName: "",
+      tablesCount: 1,
+      guestCount: 10,
+      customization: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      const bookingDetails = { ...values, date: selectedDate };
+      onSubmit(bookingDetails);
+    },
+  });
+
   return (
     <Box sx={Styles.menusBox}>
-      <Typography variant="h4" sx={Styles.menuHeading}>
-        Book Your Table
-      </Typography>
       <Box sx={Styles.booktableBox}>
         <Box sx={Styles.bookingForm}>
-          <Grid sx={Styles.inputGroup}>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>Name</Typography>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                sx={Styles.inputStyle}
-                placeholder="Your name"
-              />
-            </Box>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>Mobile</Typography>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                sx={Styles.inputStyle}
-                placeholder="Mobile number"
-              />
-            </Box>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>Tables Count</Typography>
-              <Select
-                labelId="number-select-label"
-                id="number-select"
-                value={selectedNumber}
-                onChange={handleTableChange}
-                sx={Styles.inputStyle}
-                displayEmpty
-              >
-                {[...Array(8)].map((_, index) => (
-                  <MenuItem key={index + 1} value={index + 1}>
-                    {index + 1}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Box>
-          </Grid>
-          <Grid sx={Styles.inputGroup}>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>Event Name</Typography>
-              <TextField
-                id="outlined-basic"
-                variant="outlined"
-                sx={Styles.inputStyle}
-                placeholder="Event name"
-              />
-            </Box>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>Date & Time</Typography>
+          <form onSubmit={formik.handleSubmit}>
+            <Grid sx={Styles.inputGroup}>
+              <Box sx={Styles.inputBox}>
+                <Typography sx={Styles.inputName}>Name</Typography>
+                <TextField
+                  id="name"
+                  variant="outlined"
+                  sx={Styles.inputStyle}
+                  placeholder="Your name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.name && Boolean(formik.errors.name)}
+                  helperText={formik.touched.name && formik.errors.name}
+                />
+              </Box>
+              <Box sx={Styles.inputBox}>
+                <Typography sx={Styles.inputName}>Mobile</Typography>
+                <TextField
+                  id="mobile"
+                  variant="outlined"
+                  sx={Styles.inputStyle}
+                  placeholder="Mobile number"
+                  value={formik.values.mobile}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.mobile && Boolean(formik.errors.mobile)}
+                  helperText={formik.touched.mobile && formik.errors.mobile}
+                />
+              </Box>
+              <Box sx={Styles.inputBox}>
+                <Typography sx={Styles.inputName}>Tables Count</Typography>
+                <Select
+                  labelId="tables-count-select-label"
+                  id="tablesCount"
+                  value={formik.values.tablesCount}
+                  onChange={formik.handleChange}
+                  sx={Styles.inputStyle}
+                  displayEmpty
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.tablesCount &&
+                    Boolean(formik.errors.tablesCount)
+                  }
+                >
+                  {[...Array(8)].map((_, index) => (
+                    <MenuItem key={index + 1} value={index + 1}>
+                      {index + 1}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Box>
+            </Grid>
+            <Grid sx={Styles.inputGroup}>
+              <Box sx={Styles.inputBox}>
+                <Typography sx={Styles.inputName}>Event Name</Typography>
+                <TextField
+                  id="eventName"
+                  variant="outlined"
+                  sx={Styles.inputStyle}
+                  placeholder="Event name"
+                  value={formik.values.eventName}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.eventName && Boolean(formik.errors.eventName)
+                  }
+                  helperText={
+                    formik.touched.eventName && formik.errors.eventName
+                  }
+                />
+              </Box>
 
-              <TextField
-                id="date-select"
-                type="date"
-                value={selectedDate}
-                sx={Styles.inputStyle}
-                onChange={handleDataChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-            </Box>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>Guest Count</Typography>
-              <Select
-                labelId="number-select-label"
-                id="number-select"
-                value={selectGuest}
-                onChange={handleGuestChange}
-                sx={Styles.inputStyle}
-                displayEmpty
-              >
-                {[...Array(50)].map((_, index) => (
-                  <MenuItem key={index + 1} value={index + 1}>
-                    {index + 1}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Box>
-          </Grid>
-          <Grid sx={{ ...Styles.inputGroup, ...Styles.inputCustom }}>
-            <Box sx={Styles.inputBox}>
-              <Typography sx={Styles.inputName}>
-                Add your custome Requirements
-              </Typography>
-
-              <TextField
-                id="outlined-multiline-static"
-                multiline
-                rows={2}
-                sx={Styles.inputStyle}
-                placeholder="Customization"
-              />
-            </Box>
-          </Grid>
-          <Button variant="contained" sx={Styles.submitBtn}>
-            Submit
-          </Button>
+              <Box sx={Styles.inputBox}>
+                <Typography sx={Styles.inputName}>Guest Count</Typography>
+                <Select
+                  labelId="guest-count-select-label"
+                  id="guestCount"
+                  value={formik.values.guestCount}
+                  onChange={formik.handleChange}
+                  sx={Styles.inputStyle}
+                  displayEmpty
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.guestCount &&
+                    Boolean(formik.errors.guestCount)
+                  }
+                >
+                  {[...Array(50)].map((_, index) => (
+                    <MenuItem key={index + 1} value={index + 1}>
+                      {index + 1}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Box>
+            </Grid>
+            <Grid sx={{ ...Styles.inputGroup, ...Styles.inputCustom }}>
+              <Box sx={Styles.inputBox}>
+                <Typography sx={Styles.inputName}>
+                  Add your custom Requirements
+                </Typography>
+                <TextField
+                  id="customization"
+                  multiline
+                  rows={2}
+                  sx={Styles.inputStyle}
+                  placeholder="Customization"
+                  value={formik.values.customization}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.customization &&
+                    Boolean(formik.errors.customization)
+                  }
+                  helperText={
+                    formik.touched.customization && formik.errors.customization
+                  }
+                />
+              </Box>
+            </Grid>
+            <Button type="submit" variant="contained" sx={Styles.submitBtn}>
+              Submit
+            </Button>
+          </form>
         </Box>
       </Box>
     </Box>

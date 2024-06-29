@@ -33,10 +33,11 @@ const Styles = {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "row",
-    justifyContent: "center",
     justifyContent: "space-between",
-
     gap: "50px",
+    "@media (max-width: 700px)": {
+      justifyContent: "center",
+    },
   },
   eventText: {
     fontSize: "22px",
@@ -47,27 +48,30 @@ const Styles = {
     display: "flex",
     flexDirection: "row",
     gap: "30px",
+    "@media (max-width: 700px)": {
+      flexDirection: "column",
+    },
   },
   day: {
     fontSize: "90px",
     fontFamily: "Inter",
     fontWeight: 600,
-    textShadow: "-1px -5px 6px #010101db",
-    color: "#ffffff",
+    textShadow: "3px 2px 8px #01010130",
+    color: "rgba(0, 0, 0, 0.87)",
   },
   month: {
     fontSize: "22px",
     fontFamily: "Inter",
     fontWeight: 600,
-    textShadow: "-1px -5px 6px #010101db",
-    color: "#ffffff",
+    textShadow: "3px 2px 8px #01010130",
+    color: "rgba(0, 0, 0, 0.87)",
   },
   year: {
     fontSize: "18px",
     fontFamily: "Inter",
     fontWeight: 600,
-    textShadow: "-1px -5px 6px #010101db",
-    color: "#ffffff",
+    textShadow: "3px 2px 8px #01010130",
+    color: "rgba(0, 0, 0, 0.87)",
   },
   box1: {
     border: "1px solid #E6E6E6",
@@ -75,7 +79,7 @@ const Styles = {
     boxShadow: "8px 8px 4px 0px #00000040",
     borderRadius: "10px",
     color: "rgba(0, 0, 0, 0.87)",
-    backgroundImage: "linear-gradient(90deg, #205a18, #c4ed70)",
+    // backgroundImage: "linear-gradient(90deg, #205a18, #c4ed70)",
   },
   name: {
     fontSize: "20px",
@@ -107,7 +111,7 @@ const Styles = {
     boxShadow: "8px 8px 4px 0px #00000040",
     borderRadius: "10px",
     color: "rgba(0, 0, 0, 0.87)",
-    backgroundImage: "linear-gradient(90deg, #a7c960, #c4ed7085)",
+    // backgroundImage: "linear-gradient(90deg, #a7c960, #c4ed7085)",
   },
 };
 

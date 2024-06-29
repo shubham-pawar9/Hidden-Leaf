@@ -1,0 +1,12 @@
+/* .fc-day-sat,
+.fc-day-sun {
+  background-color: green;
+  color: white;
+} */
+.fc-day-past {
+    opacity: 0.5;
+    cursor: no-drop;
+  }
+  .fc-day-today, .fc-day-future {
+    cursor: pointer;
+  }

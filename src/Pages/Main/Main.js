@@ -12,7 +12,7 @@ import Bookings from "../Bookings/Bookings";
 
 const Main = () => {
   const [activeOption, setActiveOption] = useState("Home");
-
+  const [bookingData, setBookingData] = useState("");
   return (
     <>
       <Header activeOption={activeOption} setActiveOption={setActiveOption} />
@@ -23,11 +23,12 @@ const Main = () => {
           <SubHeading />
           <Menus />
           <Banner />
-          <Booking />
         </>
       )}
       {activeOption == "Events" && <Events />}
-      {activeOption == "Bookings" && <Bookings />}
+      {activeOption == "Bookings" && (
+        <Bookings bookingData={bookingData} setBookingData={setBookingData} />
+      )}
       <Footer />
     </>
   );
