@@ -1,77 +1,58 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Box,
+  Stack,
+} from "@mui/material";
+import PhoneInTalkRoundedIcon from "@mui/icons-material/PhoneInTalkRounded";
 
 const Styles = {
   headerName: {
-    marginLeft: 10,
-    fontSize: "26px",
+    marginLeft: 1,
+    fontSize: { xs: "20px", sm: "24px", md: "26px" },
     fontFamily: "Inter",
     fontWeight: 500,
   },
-  callIcon: {
-    height: "34px",
-    width: "34px",
-  },
   options: {
-    margin: "0 25px",
-    fontSize: "20px",
+    margin: { xs: "0", sm: "0 10px", md: "0 18px" },
+    fontSize: { xs: "15px", sm: "17px", md: "20px" },
     fontFamily: "Inter",
     fontWeight: 500,
     position: "relative",
     cursor: "pointer",
-    padding: "0 10px",
+    padding: { xs: "0 4px", sm: "0 8px", md: "0 10px" },
     "&.active": {
       borderBottom: "2px solid black",
     },
   },
-  bookingNumber: {
-    position: "absolute",
-    top: "-17px",
-    right: "-23px",
-    height: "27px",
-    width: "27px",
-    background: "black",
-    borderRadius: "50%",
-    fontSize: "16px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#FFFFFF",
-    fontFamily: "Inter",
-  },
 };
 
 const Header = ({ activeOption, setActiveOption }) => {
-  const handleOptionClick = (option) => {
-    setActiveOption(option);
-  };
-
   return (
     <AppBar
       position="static"
       color="transparent"
       elevation={0}
-      sx={{ padding: "5px" }}
+      sx={{ px: { xs: 1, md: 2 }, py: 0.8 }}
     >
-      <Toolbar>
+      <Toolbar disableGutters sx={{ minHeight: { xs: "72px", md: "86px" } }}>
         <Box display="flex" alignItems="center">
           <img
             src="./images/logo.png"
             alt="Hidden Leaf"
-            style={{ width: 70, height: 70, borderRadius: "50%" }}
+            style={{ width: 58, height: 58, borderRadius: "50%" }}
           />
-          <Typography
-            variant="h6"
-            color="textPrimary"
-            style={Styles.headerName}
-          >
+          <Typography variant="h6" color="textPrimary" sx={Styles.headerName}>
             Hidden-Leaf
           </Typography>
         </Box>
         <Box flexGrow={1} />
-        <Box display="flex" alignItems="center">
-          <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
-            <img src="./images/call.png" alt="" style={Styles.callIcon} />
+        <Stack direction="row" alignItems="center" spacing={{ xs: 0.4, sm: 1.1 }}>
+          <IconButton edge="end" color="inherit" sx={{ mr: { xs: 0, sm: 1 } }}>
+            <PhoneInTalkRoundedIcon sx={{ fontSize: { xs: 22, sm: 28 } }} />
           </IconButton>
           {["Menus", "Home"].map((option) => (
             <Typography
@@ -82,23 +63,12 @@ const Header = ({ activeOption, setActiveOption }) => {
                 ...Styles.options,
                 ...(activeOption === option && Styles.options["&.active"]),
               }}
-              onClick={() => handleOptionClick(option)}
+              onClick={() => setActiveOption(option)}
             >
               {option}
-              {option === "Posts" && (
-                <Box>
-                  <Typography
-                    variant="v6"
-                    color="textPrimary"
-                    sx={Styles.bookingNumber}
-                  >
-                    3
-                  </Typography>
-                </Box>
-              )}
             </Typography>
           ))}
-        </Box>
+        </Stack>
       </Toolbar>
     </AppBar>
   );
