@@ -14,8 +14,8 @@ const Main = () => {
   return (
     <>
       <Header activeOption={activeOption} setActiveOption={setActiveOption} />
-      {activeOption == "Menus" && <MenuCard />}
-      {activeOption == "About Us" && (
+      {activeOption === "Menus" && <MenuCard />}
+      {activeOption === "About Us" && (
         <>
           <Heading />
           <SubHeading />
