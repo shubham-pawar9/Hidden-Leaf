@@ -2,13 +2,14 @@ import { Box, Typography, Grid } from "@mui/material";
 
 const Styles = {
   menusBox: {
-    padding: "0 60px",
+    padding: { xs: "0 16px", sm: "0 24px", md: "0 60px" },
     marginTop: "60px",
+    marginBottom: "30px",
   },
   menuHeading: {
-    marginBottom: "40px",
+    marginBottom: "28px",
     textAlign: "left",
-    fontSize: "35px",
+    fontSize: { xs: "28px", md: "35px" },
     fontWeight: 600,
     fontFamily: "Inter",
   },
@@ -17,7 +18,10 @@ const Styles = {
   },
   footerStyle: {
     display: "flex",
+    flexDirection: { xs: "column", md: "row" },
     justifyContent: "space-around",
+    alignItems: { xs: "flex-start", md: "stretch" },
+    gap: { xs: 3, md: 1 },
     marginBottom: "40px",
   },
   contactStyle: {
@@ -27,7 +31,7 @@ const Styles = {
   contactBox: {
     display: "flex",
     flexDirection: "column",
-    gap: "25px",
+    gap: "20px",
   },
   socialBox: {
     display: "flex",
@@ -35,7 +39,7 @@ const Styles = {
     gap: "22px",
   },
   address: {
-    width: "335px",
+    width: { xs: "100%", md: "335px" },
     textAlign: "left",
     fontSize: "16px",
     fontWeight: 500,
@@ -97,26 +101,10 @@ const Footer = () => {
             <Typography sx={Styles.contact}>7083322271</Typography>
           </Grid>
           <Grid sx={Styles.socialBox}>
-            <img
-              style={Styles.socialIcon}
-              src="./images/social/facebook.png"
-              alt=""
-            />
-            <img
-              style={Styles.socialIcon}
-              src="./images/social/linkedin.png"
-              alt=""
-            />
-            <img
-              style={Styles.socialIcon}
-              src="./images/social/youtube.png"
-              alt=""
-            />
-            <img
-              style={Styles.socialIcon}
-              src="./images/social/instagram.png"
-              alt=""
-            />
+            <img style={Styles.socialIcon} src="./images/social/facebook.png" alt="" />
+            <img style={Styles.socialIcon} src="./images/social/linkedin.png" alt="" />
+            <img style={Styles.socialIcon} src="./images/social/youtube.png" alt="" />
+            <img style={Styles.socialIcon} src="./images/social/instagram.png" alt="" />
           </Grid>
         </Box>
         <Box>

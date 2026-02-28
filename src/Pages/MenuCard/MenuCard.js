@@ -19,7 +19,7 @@ const Styles = {
     fontSize: "24px",
     padding: "20px",
     position: "relative",
-    left: "20px",
+    left: { xs: 0, md: "20px" },
   },
   menuHeading: {
     marginBottom: "40px",
@@ -51,27 +51,27 @@ const Styles = {
     width: { xs: "100%", md: "90%" },
   },
   heading: {
-    fontSize: "30px",
+    fontSize: { xs: "24px", md: "30px" },
     fontWeight: 700,
     fontFamily: "Inter",
   },
   subHeading: {
     color: "#F2DE2E",
-    fontSize: "27px",
+    fontSize: { xs: "22px", md: "27px" },
     fontWeight: 700,
     fontFamily: "Inter",
-    marginLeft: "40px",
+    marginLeft: { xs: 0, md: "40px" },
   },
   foodName: {
     fontWeight: 600,
     fontFamily: "Inter",
-    fontSize: "20px",
+    fontSize: { xs: "18px", md: "20px" },
   },
   foodDesc: {
     color: "#8A8080",
     fontWeight: 500,
     fontFamily: "Inter",
-    fontSize: "16px",
+    fontSize: { xs: "14px", md: "16px" },
   },
   menuBannerBox: {
     display: "grid",

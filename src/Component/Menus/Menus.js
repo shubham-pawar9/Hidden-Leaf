@@ -5,11 +5,14 @@ import useInView from "../../Component/useInView";
 
 const Styles = {
   imageItem: {
-    height: "140px",
+    width: { xs: "100%", sm: "150px" },
+    height: { xs: "170px", sm: "140px" },
     borderRadius: "4px",
+    objectFit: "cover",
   },
   itemBox: {
     display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
     justifyContent: "flex-start",
     alignItems: "flex-start",
     gap: "15px",
@@ -26,13 +29,13 @@ const Styles = {
     width: "100%",
   },
   menusBox: {
-    padding: "0 60px",
+    padding: { xs: "0 16px", sm: "0 24px", md: "0 60px" },
     marginTop: "60px",
   },
   menuHeading: {
-    marginBottom: "40px",
+    marginBottom: "28px",
     textAlign: "left",
-    fontSize: "35px",
+    fontSize: { xs: "28px", md: "35px" },
     fontWeight: 600,
     fontFamily: "Inter",
   },
@@ -41,6 +44,7 @@ const Styles = {
     fontSize: "16px",
     color: "#828282",
     cursor: "pointer",
+    textAlign: "left",
   },
 };
 
@@ -49,42 +53,40 @@ const Menus = () => {
   const [visibleItems, setVisibleItems] = useState(4);
   const [setRef1, inView1] = useInView({ threshold: 0.1 });
   const [setRef2, inView2] = useInView({ threshold: 0.1 });
-  const fetchMenus = async () => {
-    try {
-      const menuData = await fetch("menus.json");
-      const response = await menuData.json();
-      setMenu(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
+    const fetchMenus = async () => {
+      try {
+        const menuData = await fetch("menus.json");
+        const response = await menuData.json();
+        setMenu(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchMenus();
   }, []);
-
-  const handleLoadMore = () => {
-    setVisibleItems((prev) => prev + 4);
-  };
 
   return (
     <Box sx={Styles.menusBox}>
       <Typography variant="h4" sx={Styles.menuHeading}>
         Our Highest-Rated Exquisite Menus
       </Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={3}>
         {menu.slice(0, visibleItems).map((item) => (
-          <Grid item xs={6} key={item.id} sx={Styles.itemBox}>
+          <Grid item xs={12} md={6} key={item.id} sx={Styles.itemBox}>
             <motion.div
               ref={setRef1}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: inView1 ? 1 : 0, y: inView1 ? 0 : 50 }}
               transition={{ duration: 0.5 }}
             >
-              <img
+              <Box
+                component="img"
                 src={`./images/menus/${item.image}`}
                 alt={item.name}
-                style={Styles.imageItem}
+                sx={Styles.imageItem}
               />
             </motion.div>
             <Box>
@@ -105,7 +107,7 @@ const Menus = () => {
         <Typography
           variant="h6"
           sx={Styles.menuLoading}
-          onClick={handleLoadMore}
+          onClick={() => setVisibleItems((prev) => prev + 4)}
         >
           Load More...
         </Typography>

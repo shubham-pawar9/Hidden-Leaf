@@ -9,13 +9,13 @@ import SubHeading from "../SubHeading/SubHeading";
 import MenuCard from "../MenuCard/MenuCard";
 
 const Main = () => {
-  const [activeOption, setActiveOption] = useState("About Us");
+  const [activeOption, setActiveOption] = useState("Home");
 
   return (
     <>
       <Header activeOption={activeOption} setActiveOption={setActiveOption} />
       {activeOption === "Menus" && <MenuCard />}
-      {activeOption === "About Us" && (
+      {activeOption === "Home" && (
         <>
           <Heading />
           <SubHeading />
