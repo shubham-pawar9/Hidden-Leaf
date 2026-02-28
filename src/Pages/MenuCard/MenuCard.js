@@ -48,7 +48,7 @@ const Styles = {
     flexWrap: "wrap",
     gap: { xs: "15px 20px", md: "15px 60px" },
     justifyContent: "flex-start",
-    width: "100%",
+    width: "calc(100% - 30px)",
   },
   heading: {
     fontSize: { xs: "24px", md: "30px" },
@@ -72,6 +72,7 @@ const Styles = {
     fontWeight: 500,
     fontFamily: "Inter",
     fontSize: { xs: "14px", md: "16px" },
+    textAlign: "left",
   },
   menuBannerBox: {
     display: "grid",
@@ -106,15 +107,15 @@ const MenuCard = () => {
 
   return (
     <Box sx={Styles.menuCardMainBox}>
-      <Typography variant="h4" sx={Styles.menuHeading}>
-        Hidden-Leaf Special Menus
-      </Typography>
       <Box sx={Styles.menuBannerBox}>
         <img src="./images/menus/menu-banner1.jpg" alt="" style={Styles.menuBannerImage} />
         <img src="./images/menus/menu-banner2.jpg" alt="" style={Styles.menuBannerImage} />
         <img src="./images/menus/menu-banner3.jpg" alt="" style={Styles.menuBannerImage} />
         <img src="./images/menus/menu-banner4.jpg" alt="" style={Styles.menuBannerImage} />
       </Box>
+      <Typography variant="h4" sx={Styles.menuHeading}>
+        Hidden-Leaf Special Menus
+      </Typography>
       <Box sx={Styles.menuBox}>
         {menus.length > 0 ? (
           menus.map((menu, index) => (
