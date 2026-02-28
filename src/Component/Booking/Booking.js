@@ -16,13 +16,15 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
 const WEEK_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const SAVED_EVENTS = [
+const EVENTS = [
   { date: "2026-03-06", title: "Private Music Concert" },
   { date: "2026-03-11", title: "Corporate Dinner Meetup" },
   { date: "2026-03-18", title: "Wedding Celebration" },
   { date: "2026-03-23", title: "Food Festival Booking" },
   { date: "2026-04-04", title: "Birthday Theme Party" },
 ];
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjgeznyw";
 
 const Styles = {
   menusBox: {
@@ -91,11 +93,23 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectGuest, setSelectGuest] = useState(10);
   const [visibleMonth, setVisibleMonth] = useState(() => startOfDay(new Date()));
+  const [formValues, setFormValues] = useState({
+    name: "",
+    mobile: "",
+    occasion: "",
+    notes: "",
+  });
+  const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
 
   const today = useMemo(() => startOfDay(new Date()), []);
 
   const savedEventMap = useMemo(
-    () => new Map(SAVED_EVENTS.map((event) => [event.date, event.title])),
+    () => new Map(EVENTS.map((event) => [event.date, event.title])),
+    []
+  );
+
+  const sortedEvents = useMemo(
+    () => [...EVENTS].sort((a, b) => new Date(a.date) - new Date(b.date)),
     []
   );
 
@@ -138,12 +152,12 @@ const Booking = () => {
     }),
   ];
 
-  const canMovePreviousMonth =
-    visibleMonth.getFullYear() > today.getFullYear() ||
-    (visibleMonth.getFullYear() === today.getFullYear() &&
-      visibleMonth.getMonth() > today.getMonth());
-
   const selectedEventTitle = savedEventMap.get(selectedDate);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleDateSelect = (dateInfo) => {
     if (dateInfo.isPast || dateInfo.isBlocked) return;
@@ -166,19 +180,76 @@ const Booking = () => {
     setVisibleMonth(parsedDate);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!selectedDate) {
+      setSubmitState({ status: "error", message: "Please select a booking date." });
+      return;
+    }
+
+    setSubmitState({ status: "submitting", message: "Sending booking request..." });
+
+    const payload = {
+      name: formValues.name,
+      mobile: formValues.mobile,
+      tablesCount: selectedNumber,
+      guestCount: selectGuest,
+      eventName: formValues.occasion,
+      selectedDate,
+      specialRequirements: formValues.notes,
+      bookingSource: "calendar_or_table_booking",
+    };
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send booking request right now.");
+      }
+
+      setSubmitState({
+        status: "success",
+        message: "Booking request submitted successfully.",
+      });
+      setFormValues({ name: "", mobile: "", occasion: "", notes: "" });
+      setSelectedNumber(1);
+      setSelectGuest(10);
+      setSelectedDate("");
+    } catch (error) {
+      setSubmitState({
+        status: "error",
+        message: "Booking request failed. Please try again.",
+      });
+    }
+  };
+
   return (
     <Box sx={Styles.menusBox}>
-      <Typography variant="h4" sx={Styles.menuHeading}>
-        Book Your Event
-      </Typography>
+      <Typography variant="h4" sx={Styles.menuHeading}>Book Your Table</Typography>
 
-      <Grid container spacing={3} sx={Styles.bookingCard}>
+      <Grid container spacing={3} sx={Styles.bookingCard} component="form" onSubmit={handleSubmit}>
         <Grid item xs={12} lg={7}>
-          <Typography sx={Styles.sectionTitle}>Event Booking Details</Typography>
+          <Typography sx={Styles.sectionTitle}>Table Booking Details</Typography>
           <Grid container spacing={2.2}>
             <Grid item xs={12} sm={6}>
               <Typography sx={Styles.label}>Name</Typography>
-              <TextField variant="outlined" sx={Styles.inputStyle} placeholder="Your name" />
+              <TextField
+                variant="outlined"
+                sx={Styles.inputStyle}
+                placeholder="Your name"
+                name="name"
+                value={formValues.name}
+                onChange={handleInputChange}
+                required
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <Typography sx={Styles.label}>Mobile</Typography>
@@ -186,6 +257,10 @@ const Booking = () => {
                 variant="outlined"
                 sx={Styles.inputStyle}
                 placeholder="Mobile number"
+                name="mobile"
+                value={formValues.mobile}
+                onChange={handleInputChange}
+                required
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -204,7 +279,15 @@ const Booking = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <Typography sx={Styles.label}>Event Name</Typography>
-              <TextField variant="outlined" sx={Styles.inputStyle} placeholder="Event name" />
+              <TextField
+                variant="outlined"
+                sx={Styles.inputStyle}
+                placeholder="Occasion / event name"
+                name="occasion"
+                value={formValues.occasion}
+                onChange={handleInputChange}
+                required
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <Typography sx={Styles.label}>Guest Count</Typography>
@@ -242,12 +325,27 @@ const Booking = () => {
                 rows={3}
                 sx={Styles.inputStyle}
                 placeholder="Decoration theme, cuisine preference, timing notes..."
+                name="notes"
+                value={formValues.notes}
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" sx={Styles.submitBtn}>
-                Submit Booking Request
+              <Button type="submit" variant="contained" sx={Styles.submitBtn} disabled={submitState.status === "submitting"}>
+                {submitState.status === "submitting" ? "Submitting..." : "Submit Booking Request"}
               </Button>
+              {submitState.message && (
+                <Typography
+                  sx={{
+                    mt: 1,
+                    fontSize: "13px",
+                    color: submitState.status === "success" ? "#166534" : "#b91c1c",
+                    textAlign: "left",
+                  }}
+                >
+                  {submitState.message}
+                </Typography>
+              )}
             </Grid>
           </Grid>
         </Grid>
@@ -265,12 +363,10 @@ const Booking = () => {
             <Stack direction="row" justifyContent="space-between" alignItems="center" mb={1.5}>
               <Button
                 onClick={() =>
-                  canMovePreviousMonth &&
                   setVisibleMonth(
                     new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() - 1, 1)
                   )
                 }
-                disabled={!canMovePreviousMonth}
                 sx={{ minWidth: "38px", p: 0.6 }}
               >
                 <ChevronLeftRoundedIcon />
@@ -338,14 +434,14 @@ const Booking = () => {
             <Stack direction="row" spacing={1} mt={2} flexWrap="wrap" useFlexGap>
               <Chip icon={<CalendarMonthRoundedIcon />} label="Available" size="small" />
               <Chip label="Past dates blocked" size="small" sx={{ bgcolor: "#f3f4f6" }} />
-              <Chip label="Booked dates blocked" size="small" sx={{ bgcolor: "#fee2e2" }} />
+              <Chip label="Event dates" size="small" sx={{ bgcolor: "#fee2e2" }} />
             </Stack>
 
             <Typography sx={{ textAlign: "left", mt: 2, fontWeight: 600, fontSize: "14px" }}>
-              Saved events:
+              Events (upcoming + old):
             </Typography>
             <Stack spacing={0.8} mt={0.8}>
-              {SAVED_EVENTS.map((event) => (
+              {sortedEvents.map((event) => (
                 <Typography key={event.date} sx={{ textAlign: "left", fontSize: "13px", color: "#374151" }}>
                   {event.date} — {event.title}
                 </Typography>
