@@ -11,13 +11,18 @@ import MenuCard from "../MenuCard/MenuCard";
 const Main = () => {
   const [activeOption, setActiveOption] = useState("Home");
 
+  const scrollToBookingSection = () => {
+    const bookingElement = document.getElementById("booking-section");
+    bookingElement?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <>
       <Header activeOption={activeOption} setActiveOption={setActiveOption} />
       {activeOption === "Menus" && <MenuCard />}
       {activeOption === "Home" && (
         <>
-          <Heading />
+          <Heading onBookTableClick={scrollToBookingSection} />
           <SubHeading />
           <Menus />
           <Banner />

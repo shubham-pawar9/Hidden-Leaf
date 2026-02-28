@@ -12,7 +12,7 @@ import PhoneInTalkRoundedIcon from "@mui/icons-material/PhoneInTalkRounded";
 const Styles = {
   headerName: {
     marginLeft: 1,
-    fontSize: { xs: "20px", sm: "24px", md: "26px" },
+    fontSize: { xs: "18px", sm: "24px", md: "26px" },
     fontFamily: "Inter",
     fontWeight: 500,
   },
@@ -40,10 +40,11 @@ const Header = ({ activeOption, setActiveOption }) => {
     >
       <Toolbar disableGutters sx={{ minHeight: { xs: "72px", md: "86px" } }}>
         <Box display="flex" alignItems="center">
-          <img
+          <Box
+            component="img"
             src="./images/logo.png"
             alt="Hidden Leaf"
-            style={{ width: 58, height: 58, borderRadius: "50%" }}
+            sx={{ width: { xs: 50, sm: 58 }, height: { xs: 50, sm: 58 }, borderRadius: "50%" }}
           />
           <Typography variant="h6" color="textPrimary" sx={Styles.headerName}>
             Hidden-Leaf
@@ -52,7 +53,7 @@ const Header = ({ activeOption, setActiveOption }) => {
         <Box flexGrow={1} />
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.4, sm: 1.1 }}>
           <IconButton edge="end" color="inherit" sx={{ mr: { xs: 0, sm: 1 } }}>
-            <PhoneInTalkRoundedIcon sx={{ fontSize: { xs: 22, sm: 28 } }} />
+            <PhoneInTalkRoundedIcon sx={{ fontSize: { xs: 19, sm: 28 } }} />
           </IconButton>
           {["Menus", "Home"].map((option) => (
             <Typography

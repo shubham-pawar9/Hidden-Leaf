@@ -232,7 +232,7 @@ const Booking = () => {
   };
 
   return (
-    <Box sx={Styles.menusBox}>
+    <Box id="booking-section" sx={Styles.menusBox}>
       <Typography variant="h4" sx={Styles.menuHeading}>Book Your Table</Typography>
 
       <Grid container spacing={3} sx={Styles.bookingCard} component="form" onSubmit={handleSubmit}>
