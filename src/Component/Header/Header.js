@@ -73,7 +73,7 @@ const Header = ({ activeOption, setActiveOption }) => {
           <IconButton edge="end" color="inherit" sx={{ marginRight: 2 }}>
             <img src="./images/call.png" alt="" style={Styles.callIcon} />
           </IconButton>
-          {["Menus", "Events", "Bookings", "About Us"].map((option) => (
+          {["Menus", "Home"].map((option) => (
             <Typography
               key={option}
               variant="body1"
@@ -85,7 +85,7 @@ const Header = ({ activeOption, setActiveOption }) => {
               onClick={() => handleOptionClick(option)}
             >
               {option}
-              {option === "Bookings" && (
+              {option === "Posts" && (
                 <Box>
                   <Typography
                     variant="v6"

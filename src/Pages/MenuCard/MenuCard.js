@@ -73,6 +73,16 @@ const Styles = {
     fontFamily: "Inter",
     fontSize: "16px",
   },
+  menuBannerBox: {
+    display: "flex",
+    flexDirection: "row",
+    gap: "10px",
+  },
+  menuBannerImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
 };
 
 const MenuCard = () => {
@@ -97,6 +107,12 @@ const MenuCard = () => {
       <Typography variant="h4" sx={Styles.menuHeading}>
         Hidden-Leaf Special Menus
       </Typography>
+      <Box sx={Styles.menuBannerBox}>
+        <img src="./images/menus/menu-banner1.jpg" alt="" style={Styles.menuBannerImage} />
+        <img src="./images/menus/menu-banner2.jpg" alt="" style={Styles.menuBannerImage} />
+        <img src="./images/menus/menu-banner3.jpg" alt="" style={Styles.menuBannerImage} />
+        <img src="./images/menus/menu-banner4.jpg" alt="" style={Styles.menuBannerImage} />
+      </Box>
       <Box sx={Styles.menuBox}>
         {menus.length > 0 ? (
           menus.map((menu, index) => (

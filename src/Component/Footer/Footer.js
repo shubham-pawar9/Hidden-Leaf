@@ -94,7 +94,7 @@ const Footer = () => {
           </Grid>
           <Grid sx={Styles.contactStyle}>
             <Typography sx={Styles.mob}>Mob -</Typography>
-            <Typography sx={Styles.contact}>7030092200</Typography>
+            <Typography sx={Styles.contact}>7083322271</Typography>
           </Grid>
           <Grid sx={Styles.socialBox}>
             <img

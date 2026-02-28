@@ -411,10 +411,10 @@ const Booking = () => {
                           cell.formattedDate === selectedDate
                             ? "#111827"
                             : cell.isBlocked
-                            ? "#fee2e2"
-                            : cell.isPast
-                            ? "#f3f4f6"
-                            : "transparent",
+                              ? "#fee2e2"
+                              : cell.isPast
+                                ? "#f3f4f6"
+                                : "transparent",
                         border: cell.isBlocked ? "1px solid #fca5a5" : "1px solid #e5e7eb",
                         "&:hover": {
                           bgcolor:
@@ -433,12 +433,12 @@ const Booking = () => {
 
             <Stack direction="row" spacing={1} mt={2} flexWrap="wrap" useFlexGap>
               <Chip icon={<CalendarMonthRoundedIcon />} label="Available" size="small" />
-              <Chip label="Past dates blocked" size="small" sx={{ bgcolor: "#f3f4f6" }} />
+              {/* <Chip label="Past dates blocked" size="small" sx={{ bgcolor: "#f3f4f6" }} /> */}
               <Chip label="Event dates" size="small" sx={{ bgcolor: "#fee2e2" }} />
             </Stack>
 
             <Typography sx={{ textAlign: "left", mt: 2, fontWeight: 600, fontSize: "14px" }}>
-              Events (upcoming + old):
+              Events:
             </Typography>
             <Stack spacing={0.8} mt={0.8}>
               {sortedEvents.map((event) => (
