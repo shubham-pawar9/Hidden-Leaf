@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
 
 const Styles = {
