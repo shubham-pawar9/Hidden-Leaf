@@ -19,7 +19,7 @@ const Styles = {
     fontSize: "24px",
     padding: "20px",
     position: "relative",
-    left: { xs: 0, md: "20px" },
+    left: 0,
   },
   menuHeading: {
     marginBottom: "40px",
@@ -46,9 +46,9 @@ const Styles = {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: { xs: "15px 20px", md: "15px 100px" },
-    justifyContent: "space-around",
-    width: { xs: "100%", md: "90%" },
+    gap: { xs: "15px 20px", md: "15px 60px" },
+    justifyContent: "flex-start",
+    width: "100%",
   },
   heading: {
     fontSize: { xs: "24px", md: "30px" },

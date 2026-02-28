@@ -4,11 +4,26 @@ import { motion } from "framer-motion";
 import useInView from "../../Component/useInView";
 
 const Styles = {
-  imageItem: {
+  imageWrapper: {
     width: { xs: "100%", sm: "150px" },
-    height: { xs: "170px", sm: "140px" },
-    borderRadius: "4px",
+    height: { xs: "220px", sm: "140px" },
+    borderRadius: "6px",
+    overflow: "hidden",
+    position: "relative",
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      inset: 0,
+      boxShadow: { xs: "inset 0 0 28px rgba(0, 0, 0, 0.32)", sm: "none" },
+      pointerEvents: "none",
+      borderRadius: "inherit",
+    },
+  },
+  imageItem: {
+    width: "100%",
+    height: "100%",
     objectFit: "cover",
+    display: "block",
   },
   itemBox: {
     display: "flex",
@@ -16,6 +31,10 @@ const Styles = {
     justifyContent: "flex-start",
     alignItems: "flex-start",
     gap: "15px",
+  },
+  itemTextBox: {
+    width: "100%",
+    textAlign: "left",
   },
   itemName: {
     textAlign: "left",
@@ -81,15 +100,18 @@ const Menus = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: inView1 ? 1 : 0, y: inView1 ? 0 : 50 }}
               transition={{ duration: 0.5 }}
+              style={{ width: "100%" }}
             >
-              <Box
-                component="img"
-                src={`./images/menus/${item.image}`}
-                alt={item.name}
-                sx={Styles.imageItem}
-              />
+              <Box sx={Styles.imageWrapper}>
+                <Box
+                  component="img"
+                  src={`./images/menus/${item.image}`}
+                  alt={item.name}
+                  sx={Styles.imageItem}
+                />
+              </Box>
             </motion.div>
-            <Box>
+            <Box sx={Styles.itemTextBox}>
               <motion.div
                 ref={setRef2}
                 initial={{ opacity: 0, y: 50 }}
