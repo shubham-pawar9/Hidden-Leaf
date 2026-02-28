@@ -6,52 +6,52 @@
     "foods": [
       {
         "id": 1,
-        "name": "🍗 Chicken Curry Thali",
+        "name": "Chicken Curry Thali",
         "description": "Rustic village-style spicy chicken curry served with rice, roti, dal, pickle, and salad."
       },
       {
         "id": 2,
-        "name": "🐟 Fish Fry Thali",
+        "name": "Fish Fry Thali",
         "description": "Fresh river fish marinated in local spices, shallow fried and served with bhakri and solkadhi."
       },
       {
         "id": 3,
-        "name": "🍖 Mutton Rassa Thali",
+        "name": "Mutton Rassa Thali",
         "description": "Authentic Maharashtrian spicy mutton gravy paired with jowar bhakri and onion chutney."
       },
       {
         "id": 4,
-        "name": "🍛 Chicken Handi",
+        "name": "Chicken Handi",
         "description": "Slow-cooked country chicken prepared in a clay pot with rich desi masala."
       },
       {
         "id": 5,
-        "name": "🔥 Tandoori Chicken (Desi Style)",
+        "name": "Tandoori Chicken (Desi Style)",
         "description": "Smoky, charcoal-grilled chicken marinated in village-style yogurt and spices."
       },
       {
         "id": 6,
-        "name": "🥘 Anda Curry (Village Egg Curry)",
+        "name": "Anda Curry (Village Egg Curry)",
         "description": "Boiled eggs simmered in thick, spicy onion-tomato gravy."
       },
       {
         "id": 7,
-        "name": "🐓 Desi Chicken Sukka",
+        "name": "Desi Chicken Sukka",
         "description": "Dry roasted chicken cooked with coconut and traditional rural spices."
       },
       {
         "id": 8,
-        "name": "🐐 Mutton Sukka",
+        "name": "Mutton Sukka",
         "description": "Tender mutton slow-roasted with fresh ground masala and curry leaves."
       },
       {
         "id": 9,
-        "name": "🦐 Prawn Masala",
+        "name": "Prawn Masala",
         "description": "Juicy prawns cooked in coastal-style spicy gravy with a hint of coconut."
       },
       {
         "id": 10,
-        "name": "🍗 Chicken Biryani (Village Style)",
+        "name": "Chicken Biryani (Village Style)",
         "description": "Fragrant rice layered with spicy chicken and cooked in traditional dum method."
       }
     ]
@@ -63,42 +63,42 @@
     "foods": [
       {
         "id": 1,
-        "name": "🥗 Veg Thali (Gaon Style)",
+        "name": "Veg Thali (Gaon Style)",
         "description": "Simple and hearty meal with seasonal sabzi, dal, rice, roti/bhakri, pickle, and chutney."
       },
       {
         "id": 2,
-        "name": "🌾 Jowar Bhakri with Pithla",
+        "name": "Jowar Bhakri with Pithla",
         "description": "Soft millet flatbread served with spicy gram flour curry, a true rural classic."
       },
       {
         "id": 3,
-        "name": "🍆 Baingan Bharta",
+        "name": "Baingan Bharta",
         "description": "Fire-roasted brinjal mashed and cooked with onions, tomatoes, and desi spices."
       },
       {
         "id": 4,
-        "name": "🥔 Aloo Jeera",
+        "name": "Aloo Jeera",
         "description": "Simple village-style potatoes sautéed with cumin and fresh coriander."
       },
       {
         "id": 5,
-        "name": "🌿 Palak Dal",
+        "name": "Palak Dal",
         "description": "Yellow lentils cooked with fresh spinach and mild rural tempering."
       },
       {
         "id": 6,
-        "name": "🧀 Paneer Masala (Desi Style)",
+        "name": "Paneer Masala (Desi Style)",
         "description": "Cottage cheese cubes simmered in thick, rustic onion-tomato gravy."
       },
       {
         "id": 7,
-        "name": "🥒 Bharli Vangi",
+        "name": "Bharli Vangi",
         "description": "Stuffed brinjals filled with spicy coconut-peanut masala, cooked Maharashtrian style."
       },
       {
         "id": 8,
-        "name": "🍚 Vegetable Pulao",
+        "name": "Vegetable Pulao",
         "description": "Fragrant rice cooked with seasonal vegetables and mild whole spices."
       }
     ]
@@ -110,32 +110,32 @@
     "foods": [
       {
         "id": 1,
-        "name": "🥤 Sprite",
+        "name": "Sprite",
         "description": "Chilled lemon-lime soft drink, perfect with spicy meals."
       },
       {
         "id": 2,
-        "name": "🥤 Coca-Cola",
+        "name": "Coca-Cola",
         "description": "Classic cold cola to refresh after a heavy thali."
       },
       {
         "id": 3,
-        "name": "🥤 Thums Up",
+        "name": "Thums Up",
         "description": "Strong and fizzy cola with bold taste."
       },
       {
         "id": 4,
-        "name": "🍊 Fresh Orange Juice",
+        "name": "Fresh Orange Juice",
         "description": "Naturally sweet and tangy seasonal juice."
       },
       {
         "id": 5,
-        "name": "🥭 Mango Juice",
+        "name": "Mango Juice",
         "description": "Thick and refreshing mango drink, village favorite."
       },
       {
         "id": 6,
-        "name": "🍋 Fresh Lime Soda",
+        "name": "Fresh Lime Soda",
         "description": "Sweet or salty nimbu soda with chilled fizz."
       }
     ]
