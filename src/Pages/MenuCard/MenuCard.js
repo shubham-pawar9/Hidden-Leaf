@@ -29,7 +29,7 @@ const Styles = {
     fontFamily: "Inter",
   },
   menuCardMainBox: {
-    padding: "0 60px",
+    padding: { xs: "0 16px", sm: "0 24px", md: "0 60px" },
     marginTop: "60px",
   },
   menuItemBox: {
@@ -46,9 +46,9 @@ const Styles = {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: "15px 100px",
+    gap: { xs: "15px 20px", md: "15px 100px" },
     justifyContent: "space-around",
-    width: "90%",
+    width: { xs: "100%", md: "90%" },
   },
   heading: {
     fontSize: "30px",
@@ -74,14 +74,16 @@ const Styles = {
     fontSize: "16px",
   },
   menuBannerBox: {
-    display: "flex",
-    flexDirection: "row",
-    gap: "10px",
+    display: "grid",
+    gridTemplateColumns: { xs: "1fr", md: "repeat(4, minmax(0, 1fr))" },
+    gap: "12px",
+    marginBottom: "20px",
   },
   menuBannerImage: {
     width: "100%",
-    height: "100%",
+    height: { xs: "180px", md: "220px" },
     objectFit: "cover",
+    borderRadius: "6px",
   },
 };
 

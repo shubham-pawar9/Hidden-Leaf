@@ -1,177 +1,113 @@
 [
-    {
-        "id":1,
-        "main_course":"Non-Veg Special",
-        "special":"Chicken / Mutton",
-        "foods":[
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            }
-
-        ]
-    },
-    {
-        "id":1,
-        "main_course":"Veg Special",
-        "special":"Curry / Paneer",
-        "foods":[
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            }
-
-        ]
-    },
-    {
-        "id":1,
-        "main_course":"Drinks Special",
-        "special":"Mocktails",
-        "foods":[
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            },
-            {
-                "id":1,
-                "name":"FOOD NAME",
-                "description":"Lorem Ipsum placeholder text for use in your."
-            }
-
-        ]
-    }
-
+  {
+    "id": 1,
+    "main_course": "Non-Veg Special",
+    "special": "Chicken / Mutton",
+    "foods": [
+      {
+        "id": 1,
+        "name": "Tandoori Chicken",
+        "description": "Char-grilled chicken marinated overnight in yogurt and aromatic spices."
+      },
+      {
+        "id": 2,
+        "name": "Butter Chicken",
+        "description": "Tender chicken in a silky tomato-butter gravy with mild spices."
+      },
+      {
+        "id": 3,
+        "name": "Mutton Rogan Josh",
+        "description": "Slow-cooked mutton curry with Kashmiri chili, cardamom, and cloves."
+      },
+      {
+        "id": 4,
+        "name": "Chicken Biryani",
+        "description": "Fragrant basmati rice layered with spiced chicken and fresh herbs."
+      },
+      {
+        "id": 5,
+        "name": "Fish Tikka",
+        "description": "Smoky, grilled fish cubes finished with lemon and coriander."
+      },
+      {
+        "id": 6,
+        "name": "Prawn Masala",
+        "description": "Juicy prawns tossed in onion-tomato masala with coastal flavors."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "main_course": "Veg Special",
+    "special": "Curry / Paneer",
+    "foods": [
+      {
+        "id": 1,
+        "name": "Paneer Butter Masala",
+        "description": "Soft paneer cubes simmered in a creamy tomato and cashew gravy."
+      },
+      {
+        "id": 2,
+        "name": "Veg Kolhapuri",
+        "description": "Mixed vegetables cooked in a robust and spicy Maharashtrian masala."
+      },
+      {
+        "id": 3,
+        "name": "Dal Tadka",
+        "description": "Yellow lentils tempered with garlic, cumin, and ghee."
+      },
+      {
+        "id": 4,
+        "name": "Mushroom Pepper Fry",
+        "description": "Sauteed mushrooms with crushed pepper, curry leaves, and onions."
+      },
+      {
+        "id": 5,
+        "name": "Malai Kofta",
+        "description": "Cottage cheese dumplings in a rich, mildly sweet cream sauce."
+      },
+      {
+        "id": 6,
+        "name": "Veg Pulao",
+        "description": "Lightly spiced rice tossed with seasonal vegetables and herbs."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "main_course": "Drinks Special",
+    "special": "Mocktails",
+    "foods": [
+      {
+        "id": 1,
+        "name": "Virgin Mojito",
+        "description": "Refreshing mint, lime, and soda cooler with a citrusy kick."
+      },
+      {
+        "id": 2,
+        "name": "Blue Lagoon",
+        "description": "Chilled lemonade blended with blue curaçao flavor and crushed ice."
+      },
+      {
+        "id": 3,
+        "name": "Watermelon Cooler",
+        "description": "Fresh watermelon juice with basil notes and a dash of lime."
+      },
+      {
+        "id": 4,
+        "name": "Pineapple Ginger Fizz",
+        "description": "Tropical pineapple drink balanced with gentle ginger spice."
+      },
+      {
+        "id": 5,
+        "name": "Masala Buttermilk",
+        "description": "Traditional salted chaas with roasted cumin and coriander."
+      },
+      {
+        "id": 6,
+        "name": "Cold Coffee",
+        "description": "Creamy, frothy coffee served chilled with chocolate drizzle."
+      }
+    ]
+  }
 ]
