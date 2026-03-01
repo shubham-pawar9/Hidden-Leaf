@@ -44,7 +44,7 @@ const Header = ({ activeOption, setActiveOption }) => {
             component="img"
             src="./images/logo.png"
             alt="Hidden Leaf"
-            sx={{ width: { xs: 50, sm: 58 }, height: { xs: 50, sm: 58 }, borderRadius: "50%" }}
+            sx={{ width: { xs: 40, sm: 58 }, height: { xs: 40, sm: 58 }, borderRadius: "50%" }}
           />
           <Typography variant="h6" color="textPrimary" sx={Styles.headerName}>
             Hidden-Leaf

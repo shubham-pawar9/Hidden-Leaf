@@ -89,7 +89,7 @@ const SubHeading = () => {
               hotel. Experience the thrill of the game with every bite!
             </Typography>
           </Box>
-          <Box component="img" src="./images/banner1.png" alt="Special experience" sx={Styles.bannerImage} />
+          <Box component="img" src="./images/banner1.jpeg" alt="Special experience" sx={Styles.bannerImage} />
         </Grid>
       </motion.div>
       <motion.div
@@ -114,7 +114,7 @@ const SubHeading = () => {
               under the open sky with elegance and style!
             </Typography>
           </Box>
-          <Box component="img" src="./images/banner2.png" alt="Event planning" sx={Styles.bannerImage} />
+          <Box component="img" src="./images/banner2.jpeg" alt="Event planning" sx={Styles.bannerImage} />
         </Grid>
       </motion.div>
     </Box>

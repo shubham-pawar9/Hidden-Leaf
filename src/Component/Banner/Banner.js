@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const Styles = {
   menusBox: {
-    padding: "0 60px",
+    padding: { xs: "0 24px", sm: "0 24px", md: "0 60px" },
     marginTop: "60px",
   },
   menuHeading: {
@@ -24,7 +24,7 @@ const Banner = () => {
         Dine & Delivery
       </Typography>
       <Box>
-        <img src="./images/main-banner.png" alt="" style={Styles.bannerImage} />
+        <img src="./images/main-banner.jpeg" alt="" style={Styles.bannerImage} />
       </Box>
     </Box>
   );
