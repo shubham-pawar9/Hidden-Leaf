@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.a807eefa.css","mappings":"AAAA,KAEE,4BAAgC,CADhC,QAEF,CCHA,KACE,gBACF","sources":["index.css","App.css"],"sourcesContent":["body {\r\n  margin: 0;\r\n  font-family: \"Inter\", sans-serif;\r\n}\r\n",".App {\r\n  min-height: 100vh;\r\n}\r\n"],"names":[],"sourceRoot":""}

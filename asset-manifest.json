@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Hidden-Leaf/static/css/main.4929340c.css",
-    "main.js": "/Hidden-Leaf/static/js/main.fc6778e1.js",
+    "main.css": "/Hidden-Leaf/static/css/main.a807eefa.css",
+    "main.js": "/Hidden-Leaf/static/js/main.08835038.js",
     "static/js/453.26b5a67b.chunk.js": "/Hidden-Leaf/static/js/453.26b5a67b.chunk.js",
     "index.html": "/Hidden-Leaf/index.html",
-    "main.4929340c.css.map": "/Hidden-Leaf/static/css/main.4929340c.css.map",
-    "main.fc6778e1.js.map": "/Hidden-Leaf/static/js/main.fc6778e1.js.map",
+    "main.a807eefa.css.map": "/Hidden-Leaf/static/css/main.a807eefa.css.map",
+    "main.08835038.js.map": "/Hidden-Leaf/static/js/main.08835038.js.map",
     "453.26b5a67b.chunk.js.map": "/Hidden-Leaf/static/js/453.26b5a67b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4929340c.css",
-    "static/js/main.fc6778e1.js"
+    "static/css/main.a807eefa.css",
+    "static/js/main.08835038.js"
   ]
 }
