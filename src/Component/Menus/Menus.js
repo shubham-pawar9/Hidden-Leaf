@@ -1,7 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import useInView from "../../Component/useInView";
 
 const Styles = {
   imageWrapper: {
@@ -67,11 +66,14 @@ const Styles = {
   },
 };
 
+const itemAnimation = {
+  hidden: { opacity: 0, y: 26 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Menus = () => {
   const [menu, setMenu] = useState([]);
   const [visibleItems, setVisibleItems] = useState(4);
-  const [setRef1, inView1] = useInView({ threshold: 0.1 });
-  const [setRef2, inView2] = useInView({ threshold: 0.1 });
 
   useEffect(() => {
     const fetchMenus = async () => {
@@ -93,13 +95,14 @@ const Menus = () => {
         Our Highest-Rated Exquisite Menus
       </Typography>
       <Grid container spacing={3}>
-        {menu.slice(0, visibleItems).map((item) => (
+        {menu.slice(0, visibleItems).map((item, index) => (
           <Grid item xs={12} md={6} key={item.id} sx={Styles.itemBox}>
             <motion.div
-              ref={setRef1}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: inView1 ? 1 : 0, y: inView1 ? 0 : 50 }}
-              transition={{ duration: 0.5 }}
+              variants={itemAnimation}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12, margin: "0px 0px -8% 0px" }}
+              transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
               style={{ width: "100%" }}
             >
               <Box sx={Styles.imageWrapper}>
@@ -113,10 +116,11 @@ const Menus = () => {
             </motion.div>
             <Box sx={Styles.itemTextBox}>
               <motion.div
-                ref={setRef2}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: inView2 ? 1 : 0, y: inView2 ? 0 : 50 }}
-                transition={{ duration: 0.5 }}
+                variants={itemAnimation}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.08, margin: "0px 0px -10% 0px" }}
+                transition={{ duration: 0.45, delay: index * 0.04 + 0.08, ease: "easeOut" }}
               >
                 <Typography sx={Styles.itemName}>{item.name}</Typography>
                 <Typography sx={Styles.itemDesc}>{item.description}</Typography>
