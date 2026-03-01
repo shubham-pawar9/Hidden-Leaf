@@ -9,6 +9,7 @@ import {
   Link,
 } from "@mui/material";
 import PhoneInTalkRoundedIcon from "@mui/icons-material/PhoneInTalkRounded";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const CONTACT_NUMBER = "+917030092200";
 
@@ -28,7 +29,7 @@ const Styles = {
     cursor: "pointer",
     padding: { xs: "0 4px", sm: "0 8px", md: "0 10px" },
     "&.active": {
-      borderBottom: "2px solid black",
+      borderBottom: `2px solid ${IS_DARK_THEME ? APP_THEME_COLORS.accent : "black"}`,
     },
   },
 };
@@ -39,7 +40,12 @@ const Header = ({ activeOption, setActiveOption }) => {
       position="static"
       color="transparent"
       elevation={0}
-      sx={{ px: { xs: 1, md: 2 }, py: 0.8 }}
+      sx={{
+        px: { xs: 1, md: 2 },
+        py: 0.8,
+        backgroundColor: IS_DARK_THEME ? APP_THEME_COLORS.surface : "transparent",
+        borderBottom: IS_DARK_THEME ? `1px solid ${APP_THEME_COLORS.border}` : "none",
+      }}
     >
       <Toolbar disableGutters sx={{ minHeight: { xs: "72px", md: "86px" } }}>
         <Box display="flex" alignItems="center">
@@ -61,7 +67,7 @@ const Header = ({ activeOption, setActiveOption }) => {
             component={Link}
             href={`tel:${CONTACT_NUMBER}`}
             aria-label="Call Hidden Leaf"
-            sx={{ mr: { xs: 0, sm: 1 }, p: { xs: 0.6, sm: 1 } }}
+            sx={{ mr: { xs: 0, sm: 1 }, p: { xs: 0.6, sm: 1 }, color: "primary.main" }}
           >
             <PhoneInTalkRoundedIcon sx={{ fontSize: { xs: 19, sm: 28 } }} />
           </IconButton>

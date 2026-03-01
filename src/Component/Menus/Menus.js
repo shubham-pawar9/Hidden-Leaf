@@ -1,6 +1,7 @@
 import { Box, Typography, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const Styles = {
   imageWrapper: {
@@ -41,7 +42,7 @@ const Styles = {
     fontWeight: 600,
   },
   itemDesc: {
-    color: "#828282",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#828282",
     fontSize: "14px",
     textAlign: "left",
     width: "100%",
@@ -60,7 +61,7 @@ const Styles = {
   menuLoading: {
     marginTop: "30px",
     fontSize: "16px",
-    color: "#828282",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#828282",
     cursor: "pointer",
     textAlign: "left",
   },
