@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import useInView from "../../Component/useInView";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const Styles = {
   banner1Box: {
@@ -19,14 +20,14 @@ const Styles = {
   bannerSubText: {
     textAlign: "left",
     width: { xs: "100%", md: "350px" },
-    color: "#828282",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#828282",
   },
   bannerImage: {
     width: { xs: "100%", sm: "85%", md: "auto" },
     maxWidth: "420px",
     height: { xs: "220px", sm: "280px", md: "350px" },
     objectFit: "cover",
-    boxShadow: "0px 20px 20px 0px #b8b8b873",
+    boxShadow: IS_DARK_THEME ? "0px 20px 20px 0px rgba(2, 6, 23, 0.6)" : "0px 20px 20px 0px #b8b8b873",
   },
   banner2Box: {
     display: "flex",

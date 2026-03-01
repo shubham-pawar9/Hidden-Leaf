@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const Styles = {
   menusBox: {
@@ -14,6 +15,8 @@ const Styles = {
   },
   bannerImage: {
     width: "100%",
+    borderRadius: "8px",
+    border: IS_DARK_THEME ? `1px solid ${APP_THEME_COLORS.border}` : "none",
   },
 };
 

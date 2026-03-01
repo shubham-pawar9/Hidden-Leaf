@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const Styles = {
   menuBox: {
@@ -31,6 +32,7 @@ const Styles = {
   menuCardMainBox: {
     padding: { xs: "0 16px", sm: "0 24px", md: "0 60px" },
     marginTop: "60px",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textPrimary : "inherit",
   },
   menuItemBox: {
     marginBottom: "20px",
@@ -68,7 +70,7 @@ const Styles = {
     fontSize: { xs: "18px", md: "20px" },
   },
   foodDesc: {
-    color: "#8A8080",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#8A8080",
     fontWeight: 500,
     fontFamily: "Inter",
     fontSize: { xs: "14px", md: "16px" },
@@ -85,6 +87,7 @@ const Styles = {
     height: { xs: "180px", md: "220px" },
     objectFit: "cover",
     borderRadius: "6px",
+    border: IS_DARK_THEME ? `1px solid ${APP_THEME_COLORS.border}` : "none",
   },
 };
 

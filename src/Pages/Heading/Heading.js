@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const Styles = {
   headingBox: {
@@ -20,18 +21,19 @@ const Styles = {
   },
   subHeading: {
     fontSize: { xs: "16px", md: "18px" },
-    color: "#828282",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#828282",
     width: { xs: "100%", md: "600px" },
     fontFamily: "Inter",
     zIndex: 2,
   },
   bookTableBtn: {
-    backgroundColor: "black",
+    backgroundColor: IS_DARK_THEME ? APP_THEME_COLORS.accent : "black",
+    color: IS_DARK_THEME ? "#0f172a" : "#fff",
     padding: "12px 22px",
     marginTop: "25px",
     zIndex: 2,
     "&:hover": {
-      backgroundColor: "black",
+      backgroundColor: IS_DARK_THEME ? "#facc15" : "black",
     },
   },
 };

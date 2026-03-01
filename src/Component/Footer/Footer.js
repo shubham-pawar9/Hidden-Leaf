@@ -3,6 +3,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const ADDRESS =
   "PX67+X5W, Kondhve Khind, At Post - Kondhve, beside Shahupuri Kondhve Road, Satara, Maharashtra 415002";
@@ -50,7 +51,7 @@ const Styles = {
     textAlign: "left",
     fontSize: "16px",
     fontWeight: 500,
-    color: "#828282",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#828282",
     lineHeight: "26px",
   },
   addressbox: {
@@ -61,7 +62,7 @@ const Styles = {
     gap: "10px",
   },
   contact: {
-    color: "#6E6E6E",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#6E6E6E",
     fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "20px",
@@ -73,14 +74,14 @@ const Styles = {
     fontSize: "20px",
   },
   addressHead: {
-    color: "#000000",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textPrimary : "#000000",
     fontFamily: "Inter",
     fontSize: "20px",
     fontWeight: 500,
   },
   iconButton: {
-    color: "#1f1f1f",
-    border: "1px solid #d8d8d8",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.accent : "#1f1f1f",
+    border: IS_DARK_THEME ? `1px solid ${APP_THEME_COLORS.border}` : "1px solid #d8d8d8",
     borderRadius: "50%",
   },
   mapLink: {
@@ -88,7 +89,7 @@ const Styles = {
     alignItems: "center",
     gap: "6px",
     fontWeight: 600,
-    color: "#2f5eff",
+    color: IS_DARK_THEME ? "#93c5fd" : "#2f5eff",
     textDecoration: "none",
   },
 };

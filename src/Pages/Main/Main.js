@@ -7,6 +7,7 @@ import Menus from "../../Component/Menus/Menus";
 import Heading from "../Heading/Heading";
 import SubHeading from "../SubHeading/SubHeading";
 import MenuCard from "../MenuCard/MenuCard";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const Main = () => {
   const [activeOption, setActiveOption] = useState("Home");
@@ -17,7 +18,7 @@ const Main = () => {
   };
 
   return (
-    <>
+    <div style={{ backgroundColor: IS_DARK_THEME ? APP_THEME_COLORS.background : "#fff" }}>
       <Header activeOption={activeOption} setActiveOption={setActiveOption} />
       {activeOption === "Menus" && <MenuCard />}
       {activeOption === "Home" && (
@@ -30,7 +31,7 @@ const Main = () => {
         </>
       )}
       <Footer />
-    </>
+    </div>
   );
 };
 export default Main;

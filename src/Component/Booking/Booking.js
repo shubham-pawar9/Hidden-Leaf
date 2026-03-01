@@ -13,6 +13,7 @@ import {
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { APP_THEME_COLORS, IS_DARK_THEME } from "../../constants/theme";
 
 const WEEK_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -40,10 +41,12 @@ const Styles = {
     fontFamily: "Inter",
   },
   bookingCard: {
-    boxShadow: "0px 12px 35px 0px #0000001f",
+    boxShadow: IS_DARK_THEME ? "0px 12px 35px 0px rgba(2, 6, 23, 0.5)" : "0px 12px 35px 0px #0000001f",
     borderRadius: "18px",
     p: { xs: 2.5, md: 4 },
-    background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+    background: IS_DARK_THEME
+      ? "linear-gradient(180deg, #111827 0%, #0f172a 100%)"
+      : "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
   },
   sectionTitle: {
     fontSize: "20px",
@@ -55,18 +58,18 @@ const Styles = {
     width: "100%",
     "& .MuiInputBase-root": {
       borderRadius: "10px",
-      backgroundColor: "#ffffff",
+      backgroundColor: IS_DARK_THEME ? APP_THEME_COLORS.surfaceSoft : "#ffffff",
     },
   },
   label: {
     fontSize: "14px",
     fontWeight: 600,
-    color: "#1f2937",
+    color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#1f2937",
     textAlign: "left",
   },
   submitBtn: {
     mt: 1,
-    backgroundColor: "#111827",
+    backgroundColor: IS_DARK_THEME ? APP_THEME_COLORS.accent : "#111827",
     px: 4.5,
     py: 1.4,
     borderRadius: "10px",
@@ -74,7 +77,7 @@ const Styles = {
     fontWeight: 600,
     fontSize: "16px",
     "&:hover": {
-      backgroundColor: "#030712",
+      backgroundColor: IS_DARK_THEME ? "#facc15" : "#030712",
     },
   },
 };
@@ -339,7 +342,7 @@ const Booking = () => {
                   sx={{
                     mt: 1,
                     fontSize: "13px",
-                    color: submitState.status === "success" ? "#166534" : "#b91c1c",
+                    color: submitState.status === "success" ? "#22c55e" : "#f87171",
                     textAlign: "left",
                   }}
                 >
@@ -356,8 +359,8 @@ const Booking = () => {
             sx={{
               p: 2,
               borderRadius: "14px",
-              border: "1px solid #e5e7eb",
-              backgroundColor: "#fff",
+              border: IS_DARK_THEME ? `1px solid ${APP_THEME_COLORS.border}` : "1px solid #e5e7eb",
+              backgroundColor: IS_DARK_THEME ? APP_THEME_COLORS.surfaceSoft : "#fff",
             }}
           >
             <Stack direction="row" justifyContent="space-between" alignItems="center" mb={1.5}>
@@ -387,7 +390,7 @@ const Booking = () => {
             <Grid container columns={7} spacing={0.7}>
               {WEEK_DAYS.map((dayName) => (
                 <Grid item xs={1} key={dayName}>
-                  <Typography sx={{ fontSize: "11px", color: "#6b7280", fontWeight: 700 }}>
+                  <Typography sx={{ fontSize: "11px", color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#6b7280", fontWeight: 700 }}>
                     {dayName}
                   </Typography>
                 </Grid>
@@ -406,20 +409,22 @@ const Booking = () => {
                         p: 0,
                         borderRadius: "8px",
                         fontWeight: 700,
-                        color: cell.formattedDate === selectedDate ? "#fff" : "#111827",
+                        color: cell.formattedDate === selectedDate ? (IS_DARK_THEME ? "#0f172a" : "#fff") : IS_DARK_THEME ? APP_THEME_COLORS.textPrimary : "#111827",
                         bgcolor:
                           cell.formattedDate === selectedDate
-                            ? "#111827"
+                            ? (IS_DARK_THEME ? APP_THEME_COLORS.accent : "#111827")
                             : cell.isBlocked
-                              ? "#fee2e2"
+                              ? (IS_DARK_THEME ? "#3f1d1d" : "#fee2e2")
                               : cell.isPast
-                                ? "#f3f4f6"
+                                ? (IS_DARK_THEME ? "#1f2937" : "#f3f4f6")
                                 : "transparent",
-                        border: cell.isBlocked ? "1px solid #fca5a5" : "1px solid #e5e7eb",
+                        border: cell.isBlocked
+                          ? `1px solid ${IS_DARK_THEME ? "#f87171" : "#fca5a5"}`
+                          : `1px solid ${IS_DARK_THEME ? APP_THEME_COLORS.border : "#e5e7eb"}`,
                         "&:hover": {
                           bgcolor:
                             !cell.isPast && !cell.isBlocked && cell.formattedDate !== selectedDate
-                              ? "#f9fafb"
+                              ? (IS_DARK_THEME ? "#1e293b" : "#f9fafb")
                               : undefined,
                         },
                       }}
@@ -432,9 +437,15 @@ const Booking = () => {
             </Grid>
 
             <Stack direction="row" spacing={1} mt={2} flexWrap="wrap" useFlexGap>
-              <Chip icon={<CalendarMonthRoundedIcon />} label="Available" size="small" />
+              <Chip
+                icon={<CalendarMonthRoundedIcon sx={{ color: `${IS_DARK_THEME ? APP_THEME_COLORS.accent : "inherit"} !important` }} />}
+                label="Available"
+                size="small"
+                sx={{ color: IS_DARK_THEME ? APP_THEME_COLORS.textPrimary : "inherit", borderColor: IS_DARK_THEME ? APP_THEME_COLORS.border : "inherit" }}
+                variant="outlined"
+              />
               {/* <Chip label="Past dates blocked" size="small" sx={{ bgcolor: "#f3f4f6" }} /> */}
-              <Chip label="Event dates" size="small" sx={{ bgcolor: "#fee2e2" }} />
+              <Chip label="Event dates" size="small" sx={{ bgcolor: IS_DARK_THEME ? "#3f1d1d" : "#fee2e2", color: IS_DARK_THEME ? "#fecaca" : "inherit" }} />
             </Stack>
 
             <Typography sx={{ textAlign: "left", mt: 2, fontWeight: 600, fontSize: "14px" }}>
@@ -442,7 +453,7 @@ const Booking = () => {
             </Typography>
             <Stack spacing={0.8} mt={0.8}>
               {sortedEvents.map((event) => (
-                <Typography key={event.date} sx={{ textAlign: "left", fontSize: "13px", color: "#374151" }}>
+                <Typography key={event.date} sx={{ textAlign: "left", fontSize: "13px", color: IS_DARK_THEME ? APP_THEME_COLORS.textSecondary : "#374151" }}>
                   {event.date} — {event.title}
                 </Typography>
               ))}
