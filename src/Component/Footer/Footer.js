@@ -1,4 +1,13 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, IconButton, Link } from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+
+const ADDRESS =
+  "PX67+X5W, Kondhve Khind, At Post - Kondhve, beside Shahupuri Kondhve Road, Satara, Maharashtra 415002";
+const MAP_LINK =
+  "https://www.google.com/maps/search/?api=1&query=PX67%2BX5W%2C+Kondhve+Khind%2C+At+Post+-+Kondhve%2C+beside+Shahupuri+Kondhve+Road%2C+Satara%2C+Maharashtra+415002";
 
 const Styles = {
   menusBox: {
@@ -13,9 +22,6 @@ const Styles = {
     fontWeight: 600,
     fontFamily: "Inter",
   },
-  socialIcon: {
-    height: "18px",
-  },
   footerStyle: {
     display: "flex",
     flexDirection: { xs: "column", md: "row" },
@@ -27,6 +33,7 @@ const Styles = {
   contactStyle: {
     display: "flex",
     flexDirection: "row",
+    gap: "8px",
   },
   contactBox: {
     display: "flex",
@@ -36,7 +43,7 @@ const Styles = {
   socialBox: {
     display: "flex",
     flexDirection: "row",
-    gap: "22px",
+    gap: "8px",
   },
   address: {
     width: { xs: "100%", md: "335px" },
@@ -53,23 +60,12 @@ const Styles = {
     alignItems: "flex-start",
     gap: "10px",
   },
-  detailsBox: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    gap: "10px",
-    "& .MuiTypography-root": {
-      fontSize: "16px",
-      fontWeight: 500,
-      fontFamily: "Inter",
-      color: "#454545",
-    },
-  },
   contact: {
     color: "#6E6E6E",
     fontFamily: "Inter",
     fontWeight: 600,
     fontSize: "20px",
+    textDecoration: "none",
   },
   mob: {
     fontFamily: "Inter",
@@ -81,6 +77,19 @@ const Styles = {
     fontFamily: "Inter",
     fontSize: "20px",
     fontWeight: 500,
+  },
+  iconButton: {
+    color: "#1f1f1f",
+    border: "1px solid #d8d8d8",
+    borderRadius: "50%",
+  },
+  mapLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "6px",
+    fontWeight: 600,
+    color: "#2f5eff",
+    textDecoration: "none",
   },
 };
 
@@ -94,33 +103,55 @@ const Footer = () => {
         <Box sx={Styles.contactBox}>
           <Grid sx={Styles.contactStyle}>
             <Typography sx={Styles.mob}>Mob -</Typography>
-            <Typography sx={Styles.contact}>7030092200</Typography>
-          </Grid>
-          <Grid sx={Styles.contactStyle}>
-            <Typography sx={Styles.mob}>Mob -</Typography>
-            <Typography sx={Styles.contact}>7083322271</Typography>
+            <Link href="tel:+917030092200" sx={Styles.contact}>
+              +91 70300 92200
+            </Link>
           </Grid>
           <Grid sx={Styles.socialBox}>
-            <img style={Styles.socialIcon} src="./images/social/facebook.png" alt="" />
-            <img style={Styles.socialIcon} src="./images/social/linkedin.png" alt="" />
-            <img style={Styles.socialIcon} src="./images/social/youtube.png" alt="" />
-            <img style={Styles.socialIcon} src="./images/social/instagram.png" alt="" />
-          </Grid>
-        </Box>
-        <Box>
-          <Grid sx={Styles.detailsBox}>
-            <Typography>Customer reviews</Typography>
-            <Typography>Booking Tables</Typography>
-            <Typography>Contact Us</Typography>
+            <IconButton
+              component={Link}
+              href="https://wa.me/917030092200"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open WhatsApp"
+              sx={Styles.iconButton}
+            >
+              <WhatsAppIcon />
+            </IconButton>
+            <IconButton
+              component={Link}
+              href="https://www.instagram.com/hiddenleeafresort?igsh=MWh1amRlYmE4a3lkdA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Instagram"
+              sx={Styles.iconButton}
+            >
+              <InstagramIcon />
+            </IconButton>
+            <IconButton
+              component={Link}
+              href="https://www.facebook.com/p/Hidden-Leaf-61556696991093/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Facebook"
+              sx={Styles.iconButton}
+            >
+              <FacebookIcon />
+            </IconButton>
           </Grid>
         </Box>
         <Box>
           <Grid sx={Styles.addressbox}>
             <Typography sx={Styles.addressHead}>Address</Typography>
-            <Typography sx={Styles.address}>
-              PX67+X5W, Kondhve Khind, At Post - Kondhve, beside Shahupuri
-              Kondhve Road, Satara, Maharashtra 415002
-            </Typography>
+            <Typography sx={Styles.address}>{ADDRESS}</Typography>
+            <Link
+              href={MAP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={Styles.mapLink}
+            >
+              <LocationOnOutlinedIcon fontSize="small" /> Open on Map
+            </Link>
           </Grid>
         </Box>
       </Box>

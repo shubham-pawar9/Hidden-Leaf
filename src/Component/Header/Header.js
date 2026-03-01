@@ -6,8 +6,11 @@ import {
   IconButton,
   Box,
   Stack,
+  Link,
 } from "@mui/material";
 import PhoneInTalkRoundedIcon from "@mui/icons-material/PhoneInTalkRounded";
+
+const CONTACT_NUMBER = "+917030092200";
 
 const Styles = {
   headerName: {
@@ -52,10 +55,20 @@ const Header = ({ activeOption, setActiveOption }) => {
         </Box>
         <Box flexGrow={1} />
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.4, sm: 1.1 }}>
-          <IconButton edge="end" color="inherit" sx={{ mr: { xs: 0, sm: 1 } }}>
+          <IconButton
+            edge="end"
+            color="inherit"
+            component={Link}
+            href={`tel:${CONTACT_NUMBER}`}
+            aria-label="Call Hidden Leaf"
+            sx={{ mr: { xs: 0, sm: 1 }, p: { xs: 0.6, sm: 1 } }}
+          >
             <PhoneInTalkRoundedIcon sx={{ fontSize: { xs: 19, sm: 28 } }} />
           </IconButton>
-          {["Menus", "Home"].map((option) => (
+          {[
+            "Menus",
+            "Home",
+          ].map((option) => (
             <Typography
               key={option}
               variant="body1"
